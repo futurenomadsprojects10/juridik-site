@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juridik.ai</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -26,7 +29,6 @@
       background-color: #030d1e;
       color: #ffffff;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
     }
 
     .container {
@@ -37,25 +39,12 @@
       gap: 20px;
     }
 
-    /* Logotyp och Varumärke */
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 4px;
-    }
-
-    .brand-icon {
-      width: 32px;
-      height: 38px;
+    /* Styr storlek och avstånd för din uppladdade logotyp */
+    .brand-img {
+      width: 220px;
+      height: auto;
       display: block;
-    }
-
-    .brand-name {
-      font-size: 2.1rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: #ffffff;
+      margin-bottom: 4px;
     }
 
     /* Textsektion */
@@ -65,15 +54,7 @@
       gap: 6px;
     }
 
-    .tagline {
-      font-size: 1.15rem;
-      font-weight: 400;
-      color: #ffffff;
-      letter-spacing: -0.01em;
-      line-height: 1.4;
-    }
-
-    .contact-line {
+    .tagline, .contact-line {
       font-size: 1.15rem;
       font-weight: 400;
       color: #ffffff;
@@ -92,13 +73,10 @@
       opacity: 0.85;
     }
 
+    /* Anpassning för mindre mobilskärmar */
     @media (max-width: 480px) {
-      .brand-name {
-        font-size: 1.85rem;
-      }
-      .brand-icon {
-        width: 28px;
-        height: 33px;
+      .brand-img {
+        width: 180px;
       }
       .tagline, .contact-line {
         font-size: 1.05rem;
@@ -110,18 +88,9 @@
 
   <div class="container">
     
-    <!-- Logotyp: Ikon + Namn -->
-    <div class="brand">
-      <svg class="brand-icon" viewBox="0 0 76 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Vänstra halvmånen / basen -->
-        <path d="M0 72.8C0 82.2992 7.70076 90 17.2 90H35V55.6H17.2C7.70076 55.6 0 63.3008 0 72.8Z" fill="white"/>
-        <!-- Högra lodräta bladet -->
-        <path d="M38 0C38 0 76 17.2 76 51.4C76 72.7182 58.9868 90 38 90V0Z" fill="white"/>
-      </svg>
-      <span class="brand-name">Juridik.ai</span>
-    </div>
+    <!-- Din uppladdade bildfil -->
+    <img src="LOGGA%20VIT%20PNG.png" alt="Juridik.ai" class="brand-img">
 
-    <!-- Text och Länk -->
     <div class="text-block">
       <p class="tagline">Vi bygger något spännande…</p>
       <p class="contact-line">Kontakt: <a href="https://x.com/juridikai" target="_blank" rel="noopener noreferrer" class="x-link">@JuridikAI på X</a></p>
