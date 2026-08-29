@@ -61,11 +61,11 @@
       filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
     }
 
-    /* Waitlist Input Group */
+    /* --- WAITLIST INPUT --- */
     .waitlist-wrapper {
       width: 100%;
       position: relative;
-      min-height: 46px;
+      min-height: 52px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -78,21 +78,31 @@
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 9999px;
-      padding: 4px 4px 4px 16px;
+      padding: 5px 5px 5px 18px;
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+    /* Subtil vit ljusning vid hovring */
     .waitlist-form:hover {
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 0.22);
       background: rgba(255, 255, 255, 0.05);
     }
 
+    /* Ren, vit accent och mjuk vit skugga vid fokus */
     .waitlist-form:focus-within {
-      border-color: rgba(255, 255, 255, 0.4);
+      border-color: rgba(255, 255, 255, 0.45);
       background: rgba(255, 255, 255, 0.06);
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.12);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.06);
+    }
+
+    /* Mjuk fade-out vid submit */
+    .waitlist-form.fade-out {
+      opacity: 0;
+      transform: scale(0.96) translateY(-4px);
+      pointer-events: none;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .waitlist-input {
@@ -102,7 +112,7 @@
       outline: none;
       color: #ffffff;
       font-family: inherit;
-      font-size: 0.86rem;
+      font-size: 0.88rem;
       font-weight: 400;
       letter-spacing: -0.01em;
       min-width: 0;
@@ -111,6 +121,11 @@
     .waitlist-input::placeholder {
       color: rgba(255, 255, 255, 0.3);
       font-weight: 300;
+      transition: color 0.3s ease;
+    }
+
+    .waitlist-input:focus::placeholder {
+      color: rgba(255, 255, 255, 0.15);
     }
 
     .waitlist-btn {
@@ -118,13 +133,13 @@
       color: #030d1d;
       border: none;
       border-radius: 9999px;
-      padding: 8px 15px;
+      padding: 9px 16px;
       font-family: inherit;
       font-size: 0.82rem;
       font-weight: 500;
       letter-spacing: -0.01em;
       cursor: pointer;
-      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       white-space: nowrap;
     }
 
@@ -137,33 +152,58 @@
       transform: scale(0.96);
     }
 
-    /* Status-meddelande efter inskickat formulär */
+    /* --- STATUS MEDDELANDE --- */
+    @keyframes status-pop-in {
+      0% {
+        opacity: 0;
+        transform: translateY(8px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
     .form-status {
-      font-size: 0.85rem;
+      font-size: 0.86rem;
       font-weight: 400;
       color: rgba(255, 255, 255, 0.9);
       letter-spacing: -0.01em;
       opacity: 0;
-      transform: translateY(6px);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      position: absolute;
       display: none;
+      align-items: center;
+      gap: 8px;
     }
 
     .form-status.visible {
       display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      opacity: 1;
-      transform: translateY(0);
+      animation: status-pop-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     .form-status svg {
-      width: 14px;
-      height: 14px;
-      color: #38bdf8;
+      width: 15px;
+      height: 15px;
+      color: #ffffff;
+      opacity: 0.9;
     }
 
-    /* X Badge */
+    @keyframes draw-check {
+      0% {
+        stroke-dashoffset: 24;
+      }
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .form-status svg polyline {
+      stroke-dasharray: 24;
+      stroke-dashoffset: 24;
+      animation: draw-check 0.5s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* --- X BADGE --- */
     .x-badge {
       display: inline-flex;
       align-items: center;
@@ -176,12 +216,13 @@
       text-decoration: none;
       font-size: 0.8rem;
       font-weight: 400;
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .x-badge:hover {
       border-color: rgba(255, 255, 255, 0.25);
       color: #ffffff;
+      transform: translateY(-0.5px);
     }
 
     .x-badge svg {
@@ -222,12 +263,21 @@
         gap: 22px;
         max-width: 320px;
       }
+      .waitlist-wrapper {
+        min-height: 48px;
+      }
       .waitlist-form {
-        padding: 3px 3px 3px 14px;
+        padding: 4px 4px 4px 15px;
+      }
+      .waitlist-input {
+        font-size: 0.84rem;
       }
       .waitlist-btn {
-        padding: 7px 12px;
+        padding: 8px 13px;
         font-size: 0.78rem;
+      }
+      .form-status {
+        font-size: 0.82rem;
       }
       .footer-email {
         font-size: 0.7rem;
@@ -284,6 +334,7 @@
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
+      
       submitBtn.disabled = true;
       submitBtn.innerText = "...";
 
@@ -299,8 +350,17 @@
         });
 
         if (response.ok) {
-          form.style.display = "none";
-          statusMsg.classList.add("visible");
+          form.classList.add('fade-out');
+          
+          setTimeout(() => {
+            form.style.display = "none";
+            statusMsg.style.display = "flex";
+            
+            setTimeout(() => {
+              statusMsg.classList.add("visible");
+            }, 30);
+          }, 450); 
+
         } else {
           alert("Något gick fel, försök igen.");
           submitBtn.disabled = false;
