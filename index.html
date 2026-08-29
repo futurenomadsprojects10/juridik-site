@@ -3,50 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>juridik.ai</title>
+  <title>Juridik.ai</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      min-height: 100vh;
+    * {
       box-sizing: border-box;
-      background-color: #011635;
-      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       text-align: center;
+      padding: 24px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at center, #081a36 0%, #030d1e 50%, #01060e 100%);
+      background-color: #030d1e;
+      color: #ffffff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .content {
-      max-width: 600px;
+
+    .container {
+      max-width: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
     }
-    h1 {
-      font-size: 1.25rem;
+
+    /* Logotyp och Varumärke */
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 4px;
+    }
+
+    .brand-icon {
+      width: 32px;
+      height: 38px;
+      display: block;
+    }
+
+    .brand-name {
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+    }
+
+    /* Textsektion */
+    .text-block {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
       font-weight: 400;
-      line-height: 1.5;
-      margin: 0 0 16px 0;
-      letter-spacing: 0.02em;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
     }
-    p {
-      font-size: 1rem;
-      color: #a1a1a6;
-      margin: 0;
-      letter-spacing: 0.02em;
+
+    .contact-line {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      line-height: 1.4;
     }
-    a {
-      color: inherit;
+
+    .x-link {
+      color: #ffffff;
       text-decoration: none;
+      transition: opacity 0.2s ease;
     }
-    a:hover {
+
+    .x-link:hover {
       text-decoration: underline;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 480px) {
+      .brand-name {
+        font-size: 1.85rem;
+      }
+      .brand-icon {
+        width: 28px;
+        height: 33px;
+      }
+      .tagline, .contact-line {
+        font-size: 1.05rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <h1>AI-driven studieplattform för juriststudenter. Still building…</h1>
-    <p><a href="https://x.com/juridikai" target="_blank" rel="noopener noreferrer">JuridikAI på X</a></p>
+
+  <div class="container">
+    
+    <!-- Logotyp: Ikon + Namn -->
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 76 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Vänstra halvmånen / basen -->
+        <path d="M0 72.8C0 82.2992 7.70076 90 17.2 90H35V55.6H17.2C7.70076 55.6 0 63.3008 0 72.8Z" fill="white"/>
+        <!-- Högra lodräta bladet -->
+        <path d="M38 0C38 0 76 17.2 76 51.4C76 72.7182 58.9868 90 38 90V0Z" fill="white"/>
+      </svg>
+      <span class="brand-name">Juridik.ai</span>
+    </div>
+
+    <!-- Text och Länk -->
+    <div class="text-block">
+      <p class="tagline">Vi bygger något spännande…</p>
+      <p class="contact-line">Kontakt: <a href="https://x.com/juridikai" target="_blank" rel="noopener noreferrer" class="x-link">@JuridikAI på X</a></p>
+    </div>
+
   </div>
+
 </body>
 </html>
