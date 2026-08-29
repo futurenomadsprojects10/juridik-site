@@ -9,7 +9,7 @@
   <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -20,10 +20,11 @@
     body {
       min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
+      justify-content: space-between;
       align-items: center;
       text-align: center;
-      padding: 24px;
+      padding: 32px 24px;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: radial-gradient(circle at center, #081a36 0%, #030d1e 50%, #01060e 100%);
       background-color: #030d1e;
@@ -31,15 +32,19 @@
       -webkit-font-smoothing: antialiased;
     }
 
+    /* Osynligt element för att hålla huvudblocket exakt i vertikal mitt */
+    .spacer {
+      height: 20px;
+    }
+
     .container {
       max-width: 520px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 20px;
+      gap: 16px;
     }
 
-    /* Styr storlek och avstånd för din uppladdade logotyp */
     .brand-img {
       width: 220px;
       height: auto;
@@ -47,7 +52,6 @@
       margin-bottom: 4px;
     }
 
-    /* Textsektion */
     .text-block {
       display: flex;
       flex-direction: column;
@@ -73,7 +77,24 @@
       opacity: 0.85;
     }
 
-    /* Anpassning för mindre mobilskärmar */
+    /* Diskret e-posttext längst ner */
+    .footer-email {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.01em;
+    }
+
+    .footer-email a {
+      color: rgba(255, 255, 255, 0.4);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-email a:hover {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: underline;
+    }
+
     @media (max-width: 480px) {
       .brand-img {
         width: 180px;
@@ -81,20 +102,26 @@
       .tagline, .contact-line {
         font-size: 1.05rem;
       }
+      .footer-email {
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    
-    <!-- Din uppladdade bildfil -->
-    <img src="LOGGA%20VIT%20PNG.png" alt="Juridik.ai" class="brand-img">
+  <div class="spacer"></div>
 
+  <div class="container">
+    <img src="LOGGA%20VIT%20PNG.png" alt="Juridik.ai" class="brand-img">
     <div class="text-block">
       <p class="tagline">Vi bygger något spännande…</p>
-<p class="contact-line"><a href="https://x.com/juridikai" target="_blank" rel="noopener noreferrer" class="x-link">@JuridikAI on X</a></p>    </div>
+      <p class="contact-line"><a href="https://x.com/juridikai" target="_blank" rel="noopener noreferrer" class="x-link">@JuridikAI on X</a></p>
+    </div>
+  </div>
 
+  <div class="footer-email">
+    <a href="mailto:futurenomadsprojects@gmail.com">futurenomadsprojects@gmail.com</a>
   </div>
 
 </body>
