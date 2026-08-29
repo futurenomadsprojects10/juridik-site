@@ -9,12 +9,17 @@
   <meta http-equiv="Expires" content="0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    * {
+    *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
     }
 
     body {
@@ -24,119 +29,141 @@
       justify-content: space-between;
       align-items: center;
       text-align: center;
-      padding: 32px 24px;
+      padding: 40px 24px;
       font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(circle at center, #081a36 0%, #030d1e 50%, #01060e 100%);
-      background-color: #030d1e;
+      background: radial-gradient(circle at center, #092042 0%, #030d1d 55%, #01060e 100%);
+      background-color: #030d1d;
       color: #ffffff;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
-    .spacer {
-      height: 20px;
+    .top-spacer {
+      height: 24px;
+      visibility: hidden;
     }
 
-    .container {
-      max-width: 520px;
+    .hero-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 0px;
+      margin: auto 0;
+      gap: 28px;
     }
 
-    .brand-img {
-      width: 210px;
+    /* Skarp rendering av logotypen */
+    .brand-logo {
+      width: 125px;
       height: auto;
       display: block;
-      margin-bottom: 0px;
+      filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.35));
     }
 
-    /* Textsektion i ren och lätt Geist-stil */
-    .text-block {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      margin-top: -2px;
-    }
-
-    .tagline {
-      font-size: 1.05rem;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.9);
-      letter-spacing: -0.02em;
-      line-height: 1.4;
-    }
-
-    .contact-line {
-      font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.4;
-    }
-
-    .x-link {
-      color: rgba(255, 255, 255, 0.9);
+    /* Modern startup badge / pill-knapp */
+    .x-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 9999px;
+      color: rgba(255, 255, 255, 0.75);
       text-decoration: none;
-      font-weight: 400;
+      font-size: 0.85rem;
+      font-weight: 500;
       letter-spacing: -0.01em;
-      transition: opacity 0.2s ease, color 0.2s ease;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .x-link:hover {
+    .x-badge:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.28);
       color: #ffffff;
-      text-decoration: underline;
-      opacity: 1;
+      transform: translateY(-1px);
     }
 
-    /* Diskret mejladress längst ner i samma Geist-stil */
+    .x-badge svg {
+      width: 13px;
+      height: 13px;
+      fill: currentColor;
+      transition: transform 0.2s ease;
+    }
+
+    .x-badge:hover svg {
+      transform: scale(1.05);
+    }
+
+    /* Diskret footer */
+    .footer {
+      padding-top: 16px;
+    }
+
     .footer-email {
       font-family: 'Geist', sans-serif;
-      font-size: 0.8rem;
-      font-weight: 300;
+      font-size: 0.75rem;
+      font-weight: 400;
       letter-spacing: 0.01em;
     }
 
     .footer-email a {
-      color: rgba(255, 255, 255, 0.18);
+      color: rgba(255, 255, 255, 0.16);
       text-decoration: none;
       transition: color 0.2s ease;
     }
 
     .footer-email a:hover {
       color: rgba(255, 255, 255, 0.5);
-      text-decoration: underline;
     }
 
     @media (max-width: 480px) {
-      .brand-img {
-        width: 170px;
+      body {
+        padding: 32px 20px;
       }
-      .tagline {
-        font-size: 0.95rem;
+      .hero-container {
+        gap: 22px;
       }
-      .contact-line {
-        font-size: 0.88rem;
+      .brand-logo {
+        width: 105px;
+      }
+      .x-badge {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+        gap: 7px;
+      }
+      .x-badge svg {
+        width: 12px;
+        height: 12px;
       }
       .footer-email {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="spacer"></div>
+  <div class="top-spacer" aria-hidden="true"></div>
 
-  <div class="container">
-    <img src="LOGGA%20VIT%20PNG.png" alt="Juridik.ai" class="brand-img">
-    <div class="text-block">
-      <p class="tagline">Vi bygger något spännande…</p>
-      <p class="contact-line"><a href="https://x.com/juridikai" target="_blank" rel="noopener noreferrer" class="x-link">@JuridikAI on X</a></p>
+  <main class="hero-container">
+    <img src="LOGGA%20VIT%20PNG.png" alt="Juridik.ai" class="brand-logo">
+    
+    <a href="https://x.com/juridikai" target="_blank" rel="noopener noreferrer" class="x-badge">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+      </svg>
+      <span>@JuridikAI</span>
+    </a>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-email">
+      <a href="mailto:futurenomadsprojects@gmail.com">futurenomadsprojects@gmail.com</a>
     </div>
-  </div>
-
-  <div class="footer-email">
-    <a href="mailto:futurenomadsprojects@gmail.com">futurenomadsprojects@gmail.com</a>
-  </div>
+  </footer>
 
 </body>
 </html>
