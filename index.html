@@ -38,6 +38,7 @@
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
       
+      /* Mjuk och mer märkbar fade-in */
       opacity: 0;
       animation: pageLoad 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
@@ -75,6 +76,7 @@
       filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
     }
 
+    /* --- WAITLIST INPUT --- */
     .waitlist-wrapper {
       width: 100%;
       position: relative;
@@ -108,8 +110,7 @@
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.06);
     }
 
-    /* När formuläret skickas via Formspree-biblioteket döljer vi det mjukt */
-    .waitlist-form.submitted {
+    .waitlist-form.fade-out {
       opacity: 0;
       transform: scale(0.96) translateY(-4px);
       pointer-events: none;
@@ -180,13 +181,14 @@
       font-weight: 400;
       color: rgba(255, 255, 255, 0.9);
       letter-spacing: -0.01em;
+      opacity: 0;
+      position: absolute;
       display: none;
       align-items: center;
       gap: 8px;
     }
 
-    /* Formspree bibliotek sätter denna när det lyckas */
-    [data-fs-success]:not(:empty) .form-status {
+    .form-status.visible {
       display: inline-flex;
       animation: status-pop-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
@@ -303,8 +305,7 @@
     <img src="LOGGA%20VIT%20PNG.png" alt="Juridik.ai" class="brand-logo">
     
     <div class="waitlist-wrapper">
-      <!-- Formspree AJAX-anpassat formulär -->
-      <form class="waitlist-form" id="waitlist-form">
+      <form class="waitlist-form" id="waitlist-form" action="https://formspree.io/f/moeelzdb" method="POST">
         <input 
           type="email" 
           name="email" 
@@ -312,19 +313,15 @@
           placeholder="Din e-postadress..." 
           required
           autocomplete="email"
-          data-fs-field
         >
-        <button type="submit" class="waitlist-btn" data-fs-submit-btn>Join waitlist</button>
+        <button type="submit" class="waitlist-btn" id="submit-btn">Join waitlist</button>
       </form>
       
-      <!-- Här visas bekräftelsen automatiskt av Formspree-biblioteket -->
-      <div data-fs-success>
-        <div id="status-msg" class="form-status">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
-          </svg>
-          <span>Du är tillagd på väntelistan.</span>
-        </div>
+      <div id="status-msg" class="form-status">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span>Du är tillagd på väntelistan.</span>
       </div>
     </div>
 
@@ -342,22 +339,52 @@
     </div>
   </footer>
 
-  <!-- Formspree officiella AJAX-bibliotek och initialisering -->
   <script>
-    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-    formspree('initForm', { formElement: '#waitlist-form', formId: 'moeelzdb' });
+    const form = document.getElementById("waitlist-form");
+    const statusMsg = document.getElementById("status-msg");
+    const submitBtn = document.getElementById("submit-btn");
 
-    // Extra funktion för att tona ut formuläret snyggt när Formspree bekräftar
-    const formElement = document.getElementById('waitlist-form');
-    formElement.addEventListener('submit', () => {
-      setTimeout(() => {
-        if (document.querySelector('[data-fs-success]').innerHTML.trim() !== "") {
-          formElement.classList.add('submitted');
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      
+      submitBtn.disabled = true;
+      submitBtn.innerText = "...";
+
+      const data = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.classList.add('fade-out');
+          
+          setTimeout(() => {
+            form.style.display = "none";
+            statusMsg.style.display = "flex";
+            
+            setTimeout(() => {
+              statusMsg.classList.add("visible");
+            }, 30);
+          }, 450); 
+
+        } else {
+          alert("Något gick fel, försök igen.");
+          submitBtn.disabled = false;
+          submitBtn.innerText = "Join waitlist";
         }
-      }, 500);
+      } catch (error) {
+        alert("Något gick fel, försök igen.");
+        submitBtn.disabled = false;
+        submitBtn.innerText = "Join waitlist";
+      }
     });
   </script>
-  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 
 </body>
 </html>
