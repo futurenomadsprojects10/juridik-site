@@ -20,6 +20,7 @@
     html, body {
       height: 100%;
       width: 100%;
+      background-color: #030d1d;
     }
 
     body {
@@ -32,11 +33,25 @@
       padding: 40px 24px;
       font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background: radial-gradient(circle at center, #092042 0%, #030d1d 55%, #01060e 100%);
-      background-color: #030d1d;
       color: #ffffff;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
+      
+      /* Mjuk, diskret fade-in utan att störa */
+      opacity: 0;
+      animation: pageLoad 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes pageLoad {
+      from {
+        opacity: 0;
+        transform: translateY(4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .top-spacer {
@@ -84,20 +99,17 @@
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Subtil vit ljusning vid hovring */
     .waitlist-form:hover {
       border-color: rgba(255, 255, 255, 0.22);
       background: rgba(255, 255, 255, 0.05);
     }
 
-    /* Ren, vit accent och mjuk vit skugga vid fokus */
     .waitlist-form:focus-within {
       border-color: rgba(255, 255, 255, 0.45);
       background: rgba(255, 255, 255, 0.06);
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.06);
     }
 
-    /* Mjuk fade-out vid submit */
     .waitlist-form.fade-out {
       opacity: 0;
       transform: scale(0.96) translateY(-4px);
