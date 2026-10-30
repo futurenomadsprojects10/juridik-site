@@ -7,14 +7,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juridik.ai</title>
   
-  <!-- Open Graph / Social Media Meta Tags -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://juridik.ai/">
   <meta property="og:title" content="Juridik.ai">
   <meta property="og:description" content="Sveriges nästa generation av juridiska verktyg drivna av AI. Skriv upp dig för tidig tillgång.">
   <meta property="og:image" content="https://juridik.ai/preview-image.png">
 
-  <!-- X (Twitter) Specific -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Juridik.ai">
   <meta name="twitter:description" content="Sveriges nästa generation av juridiska verktyg drivna av AI. Skriv upp dig för tidig tillgång.">
@@ -143,6 +141,15 @@
       font-weight: 400;
       letter-spacing: -0.01em;
       min-width: 0;
+    }
+
+    /* Fix för autofyll så bakgrunden inte blir vit */
+    .waitlist-input:-webkit-autofill,
+    .waitlist-input:-webkit-autofill:hover,
+    .waitlist-input:-webkit-autofill:focus {
+      -webkit-text-fill-color: #ffffff !important;
+      -webkit-box-shadow: 0 0 0px 1000px #030d1d inset !important;
+      transition: background-color 5000s ease-in-out 0s;
     }
 
     .waitlist-input::placeholder {
