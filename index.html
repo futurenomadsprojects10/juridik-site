@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html lang="sv" xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml">
-<head><link rel="icon" type="image/png" href="Favicon1.png" media="(prefers-color-scheme: light)">
-<link rel="icon" type="image/png" href="Favicon2.png" media="(prefers-color-scheme: dark)">
+<head>
+  <link rel="icon" type="image/png" href="favicon1.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="Favicon2.png" media="(prefers-color-scheme: dark)">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juridik.ai</title>
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://juridik.ai/">
+  <meta property="og:title" content="Juridik.ai">
+  <meta property="og:description" content="Sveriges nästa generation av juridiska verktyg drivna av AI. Skriv upp dig för tidig tillgång.">
+  <meta property="og:image" content="https://juridik.ai/preview-image.png">
+
+  <!-- X (Twitter) Specific -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Juridik.ai">
+  <meta name="twitter:description" content="Sveriges nästa generation av juridiska verktyg drivna av AI. Skriv upp dig för tidig tillgång.">
+  <meta name="twitter:image" content="https://juridik.ai/preview-image.png">
+
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
@@ -252,6 +267,10 @@
       font-size: 0.75rem;
       font-weight: 300;
       letter-spacing: 0.01em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
     .footer-email a {
@@ -262,6 +281,10 @@
 
     .footer-email a:hover {
       color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer-separator {
+      color: rgba(255, 255, 255, 0.1);
     }
 
     @media (max-width: 480px) {
@@ -336,6 +359,8 @@
   <footer class="footer">
     <div class="footer-email">
       <a href="mailto:futurenomadsprojects@gmail.com">futurenomadsprojects@gmail.com</a>
+      <span class="footer-separator">•</span>
+      <a href="privacy.html">Integritetspolicy</a>
     </div>
   </footer>
 
