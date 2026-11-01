@@ -12,7 +12,6 @@
 
   <link rel="canonical" href="https://juridik.ai/">
 
-  <!-- Social sharing -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="sv_SE">
   <meta property="og:site_name" content="Juridik.ai">
@@ -24,11 +23,9 @@
   <meta name="twitter:title" content="Juridik.ai">
   <meta name="twitter:description" content="Studera juridik smartare med AI. Gå med inför lanseringen.">
 
-  <!-- Favicons -->
   <link rel="icon" type="image/png" href="/Favicon1.png" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/png" href="/Favicon2.png" media="(prefers-color-scheme: dark)">
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -155,9 +152,9 @@
     }
 
     .waitlist-form:focus-within {
-      border-color: rgba(255, 255, 255, 0.45);
-      background: rgba(255, 255, 255, 0.06);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.045);
     }
 
     .waitlist-input {
@@ -270,7 +267,7 @@
       justify-content: center;
       gap: 8px;
       padding: 0 4px;
-      font-size: 0.86rem;
+      font-size: 0.95rem;
       font-weight: 400;
       letter-spacing: -0.01em;
       line-height: 1.5;
@@ -279,7 +276,8 @@
       visibility: hidden;
       pointer-events: none;
       overflow-wrap: break-word;
-      align-self: end;
+      align-self: center;
+      white-space: nowrap;
     }
 
     .form-status span {
@@ -439,7 +437,8 @@
       }
 
       .form-status {
-        font-size: 0.82rem;
+        font-size: 0.75rem;
+        gap: 6px;
       }
 
       .footer-email,
@@ -450,6 +449,12 @@
 
     @media (max-width: 360px) {
       .privacy-notice {
+        white-space: normal;
+      }
+
+      .form-status {
+        font-size: 0.68rem;
+        gap: 4px;
         white-space: normal;
       }
     }
@@ -576,7 +581,6 @@
       class="x-badge"
       aria-label="Följ Juridik.ai på X"
     >
-      <!-- Correct X logo -->
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
       </svg>
