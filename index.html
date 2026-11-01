@@ -209,7 +209,7 @@
       color: rgba(255, 255, 255, 0.9);
       letter-spacing: -0.01em;
       opacity: 0;
-      display: none;
+      display: none; JavaScript-kontrollerad istället för ren CSS-display
       align-items: center;
       justify-content: center;
       gap: 8px;
@@ -357,10 +357,6 @@
       </div>
     </div>
 
-    <main class="hero-container">
-      <!-- (Innehållet oförändrat, länkar till /policy) -->
-    </main>
-
     <a href="https://x.com/juridikai" target="_blank" rel="noopener noreferrer" class="x-badge">
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -380,6 +376,8 @@
     const statusMsg = document.getElementById("status-msg");
     const submitBtn = document.getElementById("submit-btn");
 
+    form.jsdelivr = false;
+
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
       
@@ -389,7 +387,7 @@
       const data = new FormData(form);
 
       try {
-        const response = await fetch(form.action, {
+        const response = aliasFetch = await fetch(form.action, {
           method: form.method,
           body: data,
           headers: {
