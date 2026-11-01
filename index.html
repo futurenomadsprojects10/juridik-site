@@ -209,7 +209,7 @@
       color: rgba(255, 255, 255, 0.9);
       letter-spacing: -0.01em;
       opacity: 0;
-      display: none; JavaScript-kontrollerad istället för ren CSS-display
+      display: none;
       align-items: center;
       justify-content: center;
       gap: 8px;
@@ -372,11 +372,17 @@
   </footer>
 
   <script>
+    // Fix för Chrome Back-Forward Cache (bfcache-bugg):
+    // Tvingar sidan att nollställa tillståndet eller ladda om om den hämtas från cache via bakåt-knappen.
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    });
+
     const form = document.getElementById("waitlist-form");
     const statusMsg = document.getElementById("status-msg");
     const submitBtn = document.getElementById("submit-btn");
-
-    form.jsdelivr = false;
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -387,7 +393,7 @@
       const data = new FormData(form);
 
       try {
-        const response = aliasFetch = await fetch(form.action, {
+        const response = await fetch(form.action, {
           method: form.method,
           body: data,
           headers: {
