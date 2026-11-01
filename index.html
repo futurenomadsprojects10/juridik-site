@@ -6,12 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Juridik.ai</title>
-
-  <meta
-    name="description"
-    content="Juridik.ai – Studera juridik smartare med AI. Gå med och få uppdateringar inför lanseringen."
-  >
-
+  <meta name="description" content="Juridik.ai – Studera juridik smartare med AI. Gå med och få uppdateringar inför lanseringen.">
   <meta name="theme-color" content="#030d1d">
   <meta name="color-scheme" content="dark">
 
@@ -22,50 +17,24 @@
   <meta property="og:locale" content="sv_SE">
   <meta property="og:site_name" content="Juridik.ai">
   <meta property="og:title" content="Juridik.ai">
-  <meta
-    property="og:description"
-    content="Studera juridik smartare med AI. Gå med och få uppdateringar inför lanseringen."
-  >
+  <meta property="og:description" content="Studera juridik smartare med AI. Gå med och få uppdateringar inför lanseringen.">
   <meta property="og:url" content="https://juridik.ai/">
 
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Juridik.ai">
-  <meta
-    name="twitter:description"
-    content="Studera juridik smartare med AI. Gå med inför lanseringen."
-  >
+  <meta name="twitter:description" content="Studera juridik smartare med AI. Gå med inför lanseringen.">
 
   <!-- Favicons -->
-  <link
-    rel="icon"
-    type="image/png"
-    href="/Favicon1.png"
-    media="(prefers-color-scheme: light)"
-  >
-  <link
-    rel="icon"
-    type="image/png"
-    href="/Favicon2.png"
-    media="(prefers-color-scheme: dark)"
-  >
+  <link rel="icon" type="image/png" href="/Favicon1.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="/Favicon2.png" media="(prefers-color-scheme: dark)">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-  <link
-    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  >
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ========================================
-       RESET
-    ======================================== */
-
+    /* RESET */
     *,
     *::before,
     *::after {
@@ -87,43 +56,21 @@
       min-height: 100vh;
       min-height: 100svh;
       width: 100%;
-
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: center;
-
       padding: 40px 24px;
       text-align: center;
-
-      font-family:
-        'Geist',
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        sans-serif;
-
-      background:
-        radial-gradient(
-          circle at center,
-          #092042 0%,
-          #030d1d 55%,
-          #01060e 100%
-        );
-
+      font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(circle at center, #092042 0%, #030d1d 55%, #01060e 100%);
       color: #ffffff;
-
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-
       overflow-x: hidden;
     }
 
-    /* ========================================
-       LAYOUT
-    ======================================== */
-
+    /* LAYOUT */
     .top-spacer {
       height: 24px;
       flex-shrink: 0;
@@ -134,9 +81,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-
       margin: auto 0;
-
       width: 100%;
       max-width: 380px;
       gap: 28px;
@@ -147,23 +92,14 @@
       height: auto;
       display: block;
       flex-shrink: 0;
-
-      filter:
-        drop-shadow(
-          0 10px 30px rgba(0, 0, 0, 0.4)
-        );
+      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
     }
 
-    /* ========================================
-       WAITLIST LAYOUT
-    ======================================== */
-
+    /* WAITLIST */
     .waitlist-wrapper {
       width: 100%;
       position: relative;
-
       min-height: 52px;
-
       display: grid;
       align-items: center;
       justify-items: center;
@@ -180,12 +116,9 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-
       gap: 10px;
-
       opacity: 1;
       visibility: visible;
-
       transition:
         opacity 0.35s ease,
         visibility 0.35s ease;
@@ -197,127 +130,79 @@
       pointer-events: none;
     }
 
-    /*
-      Keep the form area's original height,
-      so the X badge never moves.
-    */
-
-    /* ========================================
-       EMAIL FORM
-    ======================================== */
-
+    /* EMAIL FORM */
     .waitlist-form {
       width: 100%;
       display: flex;
       align-items: center;
-
-      background:
-        rgba(255, 255, 255, 0.03);
-
-      border:
-        1px solid rgba(255, 255, 255, 0.1);
-
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 9999px;
-
       padding: 5px 5px 5px 18px;
-
       -webkit-backdrop-filter: blur(20px);
       backdrop-filter: blur(20px);
-
       transition:
-        background-color 0.35s
-          cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 0.35s
-          cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.35s
-          cubic-bezier(0.16, 1, 0.3, 1);
+        background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     @media (hover: hover) and (pointer: fine) {
       .waitlist-form:hover {
-        border-color:
-          rgba(255, 255, 255, 0.22);
-
-        background:
-          rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.22);
+        background: rgba(255, 255, 255, 0.05);
       }
     }
 
     .waitlist-form:focus-within {
-      border-color:
-        rgba(255, 255, 255, 0.45);
-
-      background:
-        rgba(255, 255, 255, 0.06);
-
-      box-shadow:
-        0 0 20px rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.06);
     }
 
     .waitlist-input {
       flex: 1;
       min-width: 0;
-
       background: transparent;
-
       border: none;
       outline: none;
-
       color: #ffffff;
-
       font-family: inherit;
       font-size: 0.88rem;
       font-weight: 400;
-
       letter-spacing: -0.01em;
-
       appearance: none;
       -webkit-appearance: none;
     }
 
     .waitlist-input::placeholder {
-      color:
-        rgba(255, 255, 255, 0.3);
-
+      color: rgba(255, 255, 255, 0.3);
       font-weight: 300;
       opacity: 1;
-
       transition: color 0.3s ease;
     }
 
     .waitlist-input:focus::placeholder {
-      color:
-        rgba(255, 255, 255, 0.15);
+      color: rgba(255, 255, 255, 0.15);
     }
 
-    /* ========================================
-       SUBMIT BUTTON
-    ======================================== */
-
+    /* SUBMIT BUTTON */
     .waitlist-btn {
       background-color: #ffffff;
       color: #030d1d;
-
       border: none;
       border-radius: 9999px;
-
       padding: 9px 16px;
-
       font-family: inherit;
       font-size: 0.82rem;
       font-weight: 500;
-
       letter-spacing: -0.01em;
-
       cursor: pointer;
       white-space: nowrap;
       flex-shrink: 0;
-
       transition:
-        background-color 0.25s
-          cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.25s
-          cubic-bezier(0.16, 1, 0.3, 1);
+        background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -337,25 +222,16 @@
       transform: none;
     }
 
-    /* ========================================
-       PRIVACY NOTICE
-    ======================================== */
-
+    /* PRIVACY NOTICE */
     .privacy-notice {
       width: 100%;
-
       font-family: 'Geist', sans-serif;
       font-size: 0.75rem;
       font-weight: 300;
-
       letter-spacing: 0.01em;
       line-height: 1.6;
-
-      color:
-        rgba(255, 255, 255, 0.16);
-
+      color: rgba(255, 255, 255, 0.16);
       text-align: center;
-
       white-space: nowrap;
     }
 
@@ -364,37 +240,27 @@
     }
 
     .privacy-notice a {
-      color:
-        rgba(255, 255, 255, 0.16);
-
+      color: rgba(255, 255, 255, 0.16);
       text-decoration: underline;
       text-underline-offset: 2px;
-
       transition: color 0.25s ease;
     }
 
     @media (hover: hover) and (pointer: fine) {
       .privacy-notice a:hover {
-        color:
-          rgba(255, 255, 255, 0.5);
+        color: rgba(255, 255, 255, 0.5);
       }
     }
 
-    /* ========================================
-       SUCCESS MESSAGE
-    ======================================== */
-
+    /* SUCCESS MESSAGE */
     @keyframes status-pop-in {
       from {
         opacity: 0;
-        transform:
-          translateY(8px) scale(0.96);
+        transform: translateY(8px) scale(0.96);
       }
-
       to {
         opacity: 1;
-        transform:
-          translateY(0) scale(1);
+        transform: translateY(0) scale(1);
       }
     }
 
@@ -402,32 +268,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-
       gap: 8px;
-
       padding: 0 4px;
-
       font-size: 0.86rem;
       font-weight: 400;
       letter-spacing: -0.01em;
-
       line-height: 1.5;
-
-      color:
-        rgba(255, 255, 255, 0.9);
-
+      color: rgba(255, 255, 255, 0.9);
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-
       overflow-wrap: break-word;
-
-      /*
-        Align confirmation near the bottom
-        of the unchanged form area.
-      */
       align-self: end;
-      margin-bottom: 0;
     }
 
     .form-status span {
@@ -436,31 +288,20 @@
 
     .waitlist-wrapper.is-success .form-status {
       visibility: visible;
-
-      animation:
-        status-pop-in 0.6s
-        cubic-bezier(0.16, 1, 0.3, 1)
-        forwards;
+      animation: status-pop-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     .form-status svg {
       width: 15px;
       height: 15px;
-
       color: #ffffff;
       opacity: 0.9;
-
       flex-shrink: 0;
     }
 
     @keyframes draw-check {
-      from {
-        stroke-dashoffset: 24;
-      }
-
-      to {
-        stroke-dashoffset: 0;
-      }
+      from { stroke-dashoffset: 24; }
+      to { stroke-dashoffset: 0; }
     }
 
     .form-status svg polyline {
@@ -468,33 +309,20 @@
       stroke-dashoffset: 24;
     }
 
-    .waitlist-wrapper.is-success
-    .form-status svg polyline {
-      animation:
-        draw-check 0.5s 0.2s
-        cubic-bezier(0.16, 1, 0.3, 1)
-        forwards;
+    .waitlist-wrapper.is-success .form-status svg polyline {
+      animation: draw-check 0.5s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    /* ========================================
-       INLINE ERROR MESSAGE
-    ======================================== */
-
+    /* ERROR MESSAGE */
     .form-error {
       display: none;
-
       width: 100%;
       max-width: 100%;
-
       padding: 0 4px;
-
       font-size: 0.75rem;
       font-weight: 300;
       line-height: 1.5;
-
-      color:
-        rgba(255, 190, 190, 0.85);
-
+      color: rgba(255, 190, 190, 0.85);
       text-align: center;
     }
 
@@ -502,49 +330,29 @@
       display: block;
     }
 
-    /* ========================================
-       X BADGE
-    ======================================== */
-
+    /* X BADGE */
     .x-badge {
       display: inline-flex;
       align-items: center;
-
       gap: 7px;
-
       padding: 6px 14px;
-
       background-color: transparent;
-
-      border:
-        1px solid rgba(255, 255, 255, 0.08);
-
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 9999px;
-
-      color:
-        rgba(255, 255, 255, 0.45);
-
+      color: rgba(255, 255, 255, 0.45);
       text-decoration: none;
-
       font-size: 0.8rem;
       font-weight: 400;
-
       transition:
-        border-color 0.25s
-          cubic-bezier(0.16, 1, 0.3, 1),
-        color 0.25s
-          cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.25s
-          cubic-bezier(0.16, 1, 0.3, 1);
+        border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        color 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     @media (hover: hover) and (pointer: fine) {
       .x-badge:hover {
-        border-color:
-          rgba(255, 255, 255, 0.25);
-
+        border-color: rgba(255, 255, 255, 0.25);
         color: #ffffff;
-
         transform: translateY(-0.5px);
       }
     }
@@ -556,15 +364,11 @@
     .x-badge svg {
       width: 12px;
       height: 12px;
-
       fill: currentColor;
       flex-shrink: 0;
     }
 
-    /* ========================================
-       FOOTER
-    ======================================== */
-
+    /* FOOTER */
     .footer {
       padding-top: 16px;
       flex-shrink: 0;
@@ -579,12 +383,8 @@
 
     .footer-email a {
       display: inline-block;
-
-      color:
-        rgba(255, 255, 255, 0.16);
-
+      color: rgba(255, 255, 255, 0.16);
       text-decoration: none;
-
       transition:
         color 0.25s ease,
         transform 0.25s ease;
@@ -592,31 +392,21 @@
 
     @media (hover: hover) and (pointer: fine) {
       .footer-email a:hover {
-        color:
-          rgba(255, 255, 255, 0.5);
-
+        color: rgba(255, 255, 255, 0.5);
         transform: translateY(-0.5px);
       }
     }
 
-    /* ========================================
-       ACCESSIBILITY
-    ======================================== */
-
+    /* ACCESSIBILITY */
     .waitlist-btn:focus-visible,
     .x-badge:focus-visible,
     .privacy-notice a:focus-visible,
     .footer-email a:focus-visible {
-      outline:
-        2px solid rgba(255, 255, 255, 0.65);
-
+      outline: 2px solid rgba(255, 255, 255, 0.65);
       outline-offset: 4px;
     }
 
-    /* ========================================
-       MOBILE
-    ======================================== */
-
+    /* MOBILE */
     @media (max-width: 480px) {
       body {
         padding: 32px 20px;
@@ -664,7 +454,6 @@
       }
     }
 
-    /* Small-height devices */
     @media (max-height: 480px) {
       body {
         padding-top: 20px;
@@ -676,7 +465,6 @@
       }
     }
 
-    /* Reduced motion */
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -706,15 +494,9 @@
       decoding="async"
     >
 
-    <div
-      class="waitlist-wrapper"
-      id="waitlist-wrapper"
-    >
+    <div class="waitlist-wrapper" id="waitlist-wrapper">
 
-      <div
-        class="waitlist-form-area"
-        id="waitlist-form-area"
-      >
+      <div class="waitlist-form-area" id="waitlist-form-area">
 
         <form
           class="waitlist-form"
@@ -723,7 +505,6 @@
           method="POST"
           aria-label="Anmäl dig till Juridik.ai:s lanseringsuppdateringar"
         >
-
           <input
             type="email"
             name="email"
@@ -745,7 +526,6 @@
           >
             Gå med
           </button>
-
         </form>
 
         <p class="privacy-notice">
@@ -772,7 +552,6 @@
         aria-live="polite"
         aria-atomic="true"
       >
-
         <svg
           viewBox="0 0 24 24"
           fill="none"
@@ -785,10 +564,7 @@
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
 
-        <span>
-          Du är uppskriven! Följ oss på X nedanför.
-        </span>
-
+        <span>Du är uppskriven! Följ oss på X nedanför.</span>
       </div>
 
     </div>
@@ -800,8 +576,9 @@
       class="x-badge"
       aria-label="Följ Juridik.ai på X"
     >
+      <!-- Correct X logo -->
       <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
       </svg>
 
       <span>@JuridikAI</span>
@@ -872,7 +649,6 @@
         cancelPendingRequest();
 
         wrapper.classList.remove("is-success");
-
         formArea.inert = false;
         statusMsg.inert = true;
 
@@ -916,7 +692,6 @@
         clearError();
 
         isSubmitting = true;
-
         submitBtn.disabled = true;
         submitBtn.textContent = "...";
 
@@ -954,7 +729,6 @@
           }
 
           wrapper.classList.add("is-success");
-
           formArea.inert = true;
           statusMsg.inert = false;
 
@@ -994,7 +768,6 @@
           }
         }
       });
-
     })();
   </script>
 
