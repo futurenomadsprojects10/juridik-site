@@ -140,6 +140,16 @@
       width: 100%;
       max-width: 380px;
       gap: 28px;
+
+      transition: gap 0.35s ease;
+    }
+
+    /*
+      After successful registration, reduce
+      spacing between confirmation and X.
+    */
+    .hero-container:has(.waitlist-wrapper.is-success) {
+      gap: 14px;
     }
 
     .brand-logo {
@@ -197,6 +207,20 @@
       pointer-events: none;
     }
 
+    /*
+      Remove the form area's layout footprint
+      after success. The confirmation becomes
+      the only content determining grid height.
+    */
+    .waitlist-wrapper.is-success .waitlist-form-area {
+      position: absolute;
+      inset: 0;
+    }
+
+    .waitlist-wrapper.is-success {
+      min-height: 0;
+    }
+
     /* ========================================
        EMAIL FORM
     ======================================== */
@@ -228,7 +252,6 @@
           cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    /* Hover only on devices with real hover */
     @media (hover: hover) and (pointer: fine) {
       .waitlist-form:hover {
         border-color:
@@ -351,6 +374,8 @@
         rgba(255, 255, 255, 0.16);
 
       text-align: center;
+
+      white-space: nowrap;
     }
 
     .privacy-cta {
@@ -618,6 +643,10 @@
         max-width: 320px;
       }
 
+      .hero-container:has(.waitlist-wrapper.is-success) {
+        gap: 12px;
+      }
+
       .waitlist-wrapper {
         min-height: 48px;
       }
@@ -645,6 +674,17 @@
       }
     }
 
+    /*
+      Very narrow screens:
+      allow the first sentence to wrap while
+      keeping "Läs vår integritetspolicy" together.
+    */
+    @media (max-width: 360px) {
+      .privacy-notice {
+        white-space: normal;
+      }
+    }
+
     /* Small-height devices */
     @media (max-height: 480px) {
       body {
@@ -654,6 +694,10 @@
 
       .hero-container {
         gap: 18px;
+      }
+
+      .hero-container:has(.waitlist-wrapper.is-success) {
+        gap: 12px;
       }
     }
 
@@ -730,7 +774,7 @@
         </form>
 
         <p class="privacy-notice">
-          Genom att gå med får du uppdateringar om vår lansering.
+          Få lanseringsuppdateringar.
           <span class="privacy-cta">
             Läs vår <a href="https://juridik.ai/policy/">integritetspolicy</a>.
           </span>
@@ -876,7 +920,6 @@
         clearError();
       }
 
-      // Initial accessibility state
       statusMsg.inert = true;
 
       // =====================================
@@ -896,11 +939,10 @@
         cancelPendingRequest();
       });
 
-      // Remove errors when user edits email
       emailInput.addEventListener("input", clearError);
 
       // =====================================
-      // SUBMISSION
+      // FORM SUBMISSION
       // =====================================
 
       form.addEventListener("submit", async (event) => {
@@ -957,7 +999,7 @@
             throw new Error("Submission failed");
           }
 
-          // Successful registration
+          // Show confirmation.
           wrapper.classList.add("is-success");
 
           formArea.inert = true;
