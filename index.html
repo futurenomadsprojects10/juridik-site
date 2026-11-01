@@ -140,16 +140,6 @@
       width: 100%;
       max-width: 380px;
       gap: 28px;
-
-      transition: gap 0.35s ease;
-    }
-
-    /*
-      After successful registration, reduce
-      spacing between confirmation and X.
-    */
-    .hero-container:has(.waitlist-wrapper.is-success) {
-      gap: 14px;
     }
 
     .brand-logo {
@@ -208,18 +198,9 @@
     }
 
     /*
-      Remove the form area's layout footprint
-      after success. The confirmation becomes
-      the only content determining grid height.
+      Keep the form area's original height,
+      so the X badge never moves.
     */
-    .waitlist-wrapper.is-success .waitlist-form-area {
-      position: absolute;
-      inset: 0;
-    }
-
-    .waitlist-wrapper.is-success {
-      min-height: 0;
-    }
 
     /* ========================================
        EMAIL FORM
@@ -440,6 +421,13 @@
       pointer-events: none;
 
       overflow-wrap: break-word;
+
+      /*
+        Align confirmation near the bottom
+        of the unchanged form area.
+      */
+      align-self: end;
+      margin-bottom: 0;
     }
 
     .form-status span {
@@ -643,10 +631,6 @@
         max-width: 320px;
       }
 
-      .hero-container:has(.waitlist-wrapper.is-success) {
-        gap: 12px;
-      }
-
       .waitlist-wrapper {
         min-height: 48px;
       }
@@ -674,11 +658,6 @@
       }
     }
 
-    /*
-      Very narrow screens:
-      allow the first sentence to wrap while
-      keeping "Läs vår integritetspolicy" together.
-    */
     @media (max-width: 360px) {
       .privacy-notice {
         white-space: normal;
@@ -694,10 +673,6 @@
 
       .hero-container {
         gap: 18px;
-      }
-
-      .hero-container:has(.waitlist-wrapper.is-success) {
-        gap: 12px;
       }
     }
 
@@ -826,7 +801,7 @@
       aria-label="Följ Juridik.ai på X"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
       </svg>
 
       <span>@JuridikAI</span>
@@ -862,10 +837,6 @@
       let timeoutId = null;
       let pageIsActive = true;
 
-      // =====================================
-      // ERROR HANDLING
-      // =====================================
-
       function clearError() {
         errorMsg.textContent = "";
         errorMsg.classList.remove("is-visible");
@@ -878,10 +849,6 @@
         emailInput.setAttribute("aria-invalid", "true");
       }
 
-      // =====================================
-      // CLEANUP
-      // =====================================
-
       function clearRequestTimeout() {
         if (timeoutId !== null) {
           clearTimeout(timeoutId);
@@ -891,7 +858,6 @@
 
       function cancelPendingRequest() {
         requestVersion++;
-
         clearRequestTimeout();
 
         if (controller) {
@@ -901,10 +867,6 @@
 
         isSubmitting = false;
       }
-
-      // =====================================
-      // RESET UI
-      // =====================================
 
       function resetFormUI() {
         cancelPendingRequest();
@@ -922,10 +884,6 @@
 
       statusMsg.inert = true;
 
-      // =====================================
-      // PAGE LIFECYCLE
-      // =====================================
-
       window.addEventListener("pageshow", (event) => {
         pageIsActive = true;
 
@@ -940,10 +898,6 @@
       });
 
       emailInput.addEventListener("input", clearError);
-
-      // =====================================
-      // FORM SUBMISSION
-      // =====================================
 
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
@@ -999,7 +953,6 @@
             throw new Error("Submission failed");
           }
 
-          // Show confirmation.
           wrapper.classList.add("is-success");
 
           formArea.inert = true;
