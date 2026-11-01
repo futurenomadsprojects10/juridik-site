@@ -1,425 +1,1141 @@
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <link rel="icon" type="image/png" href="Favicon1.png" media="(prefers-color-scheme: light)">
-  <link rel="icon" type="image/png" href="Favicon2.png" media="(prefers-color-scheme: dark)">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Juridik.ai</title>
-  
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
+
+  <meta name="description" content="Juridik.ai. Studera juridik smartare med AI.">
+
+  <meta name="theme-color" content="#030d1d">
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="Favicon1.png"
+    media="(prefers-color-scheme: light)"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="Favicon2.png"
+    media="(prefers-color-scheme: dark)"
+  >
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
-    *, *::before, *::after {
+    /* =========================================
+       RESET
+    ========================================= */
+
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html, body {
-      height: 100%;
+
+    /* =========================================
+       ROOT
+    ========================================= */
+
+    html {
       width: 100%;
+      min-height: 100%;
+
       background-color: #030d1d;
+
+      color-scheme: dark;
+
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+
+      scroll-behavior: auto;
     }
+
+
+    /* =========================================
+       BODY
+    ========================================= */
 
     body {
       min-height: 100vh;
+      min-height: 100svh;
+
+      width: 100%;
+
       display: flex;
       flex-direction: column;
+
       justify-content: space-between;
       align-items: center;
+
       text-align: center;
+
       padding: 40px 24px;
-      font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(circle at center, #092042 0%, #030d1d 55%, #01060e 100%);
+
+      font-family:
+        'Geist',
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        sans-serif;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #092042 0%,
+          #030d1d 55%,
+          #01060e 100%
+        );
+
+      background-color: #030d1d;
+
       color: #ffffff;
+
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+
       overflow-x: hidden;
-      opacity: 0;
-      animation: pageLoad 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    @keyframes pageLoad {
-      from {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+
+    /* =========================================
+       TOP SPACER
+    ========================================= */
 
     .top-spacer {
       height: 24px;
+
+      flex-shrink: 0;
+
       visibility: hidden;
     }
 
+
+    /* =========================================
+       HERO
+    ========================================= */
+
     .hero-container {
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
+
       margin: auto 0;
+
       width: 100%;
       max-width: 380px;
+
       gap: 28px;
     }
+
+
+    /* =========================================
+       LOGO
+    ========================================= */
 
     .brand-logo {
       width: 115px;
       height: auto;
+
       display: block;
-      filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
+
+      flex-shrink: 0;
+
+      filter:
+        drop-shadow(
+          0 10px 30px rgba(0, 0, 0, 0.4)
+        );
     }
+
+
+    /* =========================================
+       WAITLIST
+    ========================================= */
 
     .waitlist-wrapper {
       width: 100%;
+
       position: relative;
+
       min-height: 52px;
+
       display: flex;
+
       flex-direction: column;
+
       justify-content: center;
       align-items: center;
+
       gap: 10px;
     }
 
+
+    /* =========================================
+       EMAIL FORM
+    ========================================= */
+
     .waitlist-form {
       width: 100%;
+
       display: flex;
+
       align-items: center;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      background:
+        rgba(255, 255, 255, 0.03);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.1);
+
       border-radius: 9999px;
+
       padding: 5px 5px 5px 18px;
-      backdrop-filter: blur(20px);
+
       -webkit-backdrop-filter: blur(20px);
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(20px);
+
+      transition:
+        background-color 0.35s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        border-color 0.35s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        box-shadow 0.35s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        transform 0.35s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        opacity 0.35s
+          cubic-bezier(0.16, 1, 0.3, 1);
     }
+
+
+    /* =========================================
+       EMAIL FORM HOVER
+    ========================================= */
 
     .waitlist-form:hover {
-      border-color: rgba(255, 255, 255, 0.22);
-      background: rgba(255, 255, 255, 0.05);
+      border-color:
+        rgba(255, 255, 255, 0.22);
+
+      background:
+        rgba(255, 255, 255, 0.05);
     }
 
+
+    /* =========================================
+       EMAIL FORM FOCUS
+    ========================================= */
+
     .waitlist-form:focus-within {
-      border-color: rgba(255, 255, 255, 0.45);
-      background: rgba(255, 255, 255, 0.06);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.06);
+      border-color:
+        rgba(255, 255, 255, 0.45);
+
+      background:
+        rgba(255, 255, 255, 0.06);
+
+      box-shadow:
+        0 0 20px rgba(255, 255, 255, 0.06);
     }
+
+
+    /* =========================================
+       FORM FADE OUT
+    ========================================= */
 
     .waitlist-form.fade-out {
       opacity: 0;
-      transform: scale(0.96) translateY(-4px);
+
+      transform:
+        scale(0.96)
+        translateY(-4px);
+
       pointer-events: none;
-      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+      transition:
+        opacity 0.45s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        transform 0.45s
+          cubic-bezier(0.16, 1, 0.3, 1);
     }
+
+
+    /* =========================================
+       EMAIL INPUT
+    ========================================= */
 
     .waitlist-input {
       flex: 1;
+
+      min-width: 0;
+
       background: transparent;
+
       border: none;
       outline: none;
+
       color: #ffffff;
+
       font-family: inherit;
+
       font-size: 0.88rem;
       font-weight: 400;
+
       letter-spacing: -0.01em;
-      min-width: 0;
+
+      appearance: none;
+      -webkit-appearance: none;
     }
+
+
+    /* =========================================
+       EMAIL PLACEHOLDER
+    ========================================= */
 
     .waitlist-input::placeholder {
-      color: rgba(255, 255, 255, 0.3);
+      color:
+        rgba(255, 255, 255, 0.3);
+
       font-weight: 300;
-      transition: color 0.3s ease;
+
+      opacity: 1;
+
+      transition:
+        color 0.3s ease;
     }
 
-    .waitlist-input:focus::placeholder {
-      color: rgba(255, 255, 255, 0.15);
+
+    .waitlist-form:hover .waitlist-input::placeholder {
+      color:
+        rgba(255, 255, 255, 0.4);
     }
+
+
+    .waitlist-input:focus::placeholder {
+      color:
+        rgba(255, 255, 255, 0.15);
+    }
+
+
+    /* =========================================
+       SUBMIT BUTTON
+    ========================================= */
 
     .waitlist-btn {
       background-color: #ffffff;
+
       color: #030d1d;
+
       border: none;
+
       border-radius: 9999px;
+
       padding: 9px 16px;
+
       font-family: inherit;
+
       font-size: 0.82rem;
       font-weight: 500;
+
       letter-spacing: -0.01em;
+
       cursor: pointer;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
       white-space: nowrap;
+
+      flex-shrink: 0;
+
+      transition:
+        background-color 0.25s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        transform 0.25s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        box-shadow 0.25s
+          cubic-bezier(0.16, 1, 0.3, 1);
     }
+
 
     .waitlist-btn:hover {
       background-color: #f1f5f9;
+
       transform: translateY(-0.5px);
+
+      box-shadow:
+        0 3px 12px rgba(0, 0, 0, 0.12);
     }
+
 
     .waitlist-btn:active {
       transform: scale(0.96);
     }
 
+
     .waitlist-btn:disabled {
       opacity: 0.7;
+
       cursor: not-allowed;
+
       transform: none;
+
+      box-shadow: none;
     }
+
+
+    /* =========================================
+       PRIVACY NOTICE
+    ========================================= */
 
     .privacy-notice {
       font-family: 'Geist', sans-serif;
+
       font-size: 0.75rem;
       font-weight: 300;
+
       letter-spacing: 0.01em;
-      color: rgba(255, 255, 255, 0.16);
+
+      color:
+        rgba(255, 255, 255, 0.16);
+
       text-align: center;
+
       width: 100%;
     }
 
+
+    /* =========================================
+       PRIVACY LINK
+    ========================================= */
+
     .privacy-notice a {
-      color: rgba(255, 255, 255, 0.16);
+      color:
+        rgba(255, 255, 255, 0.16);
+
       text-decoration: underline;
-      transition: color 0.2s ease;
+
+      text-decoration-color:
+        rgba(255, 255, 255, 0.16);
+
+      text-underline-offset: 2px;
+
+      transition:
+        color 0.25s ease,
+
+        text-decoration-color 0.25s ease,
+
+        opacity 0.25s ease;
     }
 
+
     .privacy-notice a:hover {
-      color: rgba(255, 255, 255, 0.5);
+      color:
+        rgba(255, 255, 255, 0.5);
+
+      text-decoration-color:
+        rgba(255, 255, 255, 0.5);
     }
+
+
+    /* =========================================
+       FORM STATUS
+    ========================================= */
 
     @keyframes status-pop-in {
       0% {
         opacity: 0;
-        transform: translateY(8px) scale(0.96);
+
+        transform:
+          translateY(8px)
+          scale(0.96);
       }
+
       100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+          translateY(0)
+          scale(1);
       }
     }
+
 
     .form-status {
       font-size: 0.86rem;
       font-weight: 400;
-      color: rgba(255, 255, 255, 0.9);
+
+      color:
+        rgba(255, 255, 255, 0.9);
+
       letter-spacing: -0.01em;
+
       opacity: 0;
+
       display: none;
+
       align-items: center;
       justify-content: center;
+
       gap: 8px;
+
       width: 100%;
     }
 
+
     .form-status.visible {
       display: inline-flex;
-      animation: status-pop-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+      animation:
+        status-pop-in 0.6s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
     }
+
 
     .form-status svg {
       width: 15px;
       height: 15px;
+
       color: #ffffff;
+
       opacity: 0.9;
+
       flex-shrink: 0;
     }
+
 
     @keyframes draw-check {
       0% {
         stroke-dashoffset: 24;
       }
+
       100% {
         stroke-dashoffset: 0;
       }
     }
 
+
     .form-status svg polyline {
       stroke-dasharray: 24;
+
       stroke-dashoffset: 24;
-      animation: draw-check 0.5s 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
+      animation:
+        draw-check 0.5s
+        0.2s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        forwards;
     }
+
+
+    /* =========================================
+       X BADGE
+    ========================================= */
 
     .x-badge {
       display: inline-flex;
+
       align-items: center;
+
       gap: 7px;
+
       padding: 6px 14px;
+
       background-color: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.08);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.08);
+
       border-radius: 9999px;
-      color: rgba(255, 255, 255, 0.45);
+
+      color:
+        rgba(255, 255, 255, 0.45);
+
       text-decoration: none;
+
       font-size: 0.8rem;
       font-weight: 400;
-      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+      transition:
+        background-color 0.25s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        border-color 0.25s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        color 0.25s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        transform 0.25s
+          cubic-bezier(0.16, 1, 0.3, 1);
     }
 
+
     .x-badge:hover {
-      border-color: rgba(255, 255, 255, 0.25);
+      border-color:
+        rgba(255, 255, 255, 0.25);
+
       color: #ffffff;
+
+      background-color:
+        rgba(255, 255, 255, 0.025);
+
       transform: translateY(-0.5px);
     }
+
+
+    .x-badge:active {
+      transform: scale(0.98);
+    }
+
 
     .x-badge svg {
       width: 12px;
       height: 12px;
+
       fill: currentColor;
+
+      flex-shrink: 0;
+
+      transition:
+        opacity 0.25s ease;
     }
+
+
+    /* =========================================
+       FOOTER
+    ========================================= */
 
     .footer {
       padding-top: 16px;
+
+      flex-shrink: 0;
     }
+
 
     .footer-email {
       font-family: 'Geist', sans-serif;
+
       font-size: 0.75rem;
       font-weight: 300;
+
       letter-spacing: 0.01em;
     }
 
+
+    /* =========================================
+       FOOTER EMAIL LINK
+    ========================================= */
+
     .footer-email a {
-      color: rgba(255, 255, 255, 0.16);
+      display: inline-block;
+
+      color:
+        rgba(255, 255, 255, 0.16);
+
       text-decoration: none;
-      transition: color 0.2s ease;
+
+      transition:
+        color 0.25s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        opacity 0.25s
+          cubic-bezier(0.16, 1, 0.3, 1),
+
+        transform 0.25s
+          cubic-bezier(0.16, 1, 0.3, 1);
     }
+
 
     .footer-email a:hover {
-      color: rgba(255, 255, 255, 0.5);
+      color:
+        rgba(255, 255, 255, 0.5);
+
+      transform: translateY(-0.5px);
     }
 
+
+    /* =========================================
+       KEYBOARD ACCESSIBILITY
+    ========================================= */
+
+    .waitlist-input:focus-visible {
+      outline: none;
+    }
+
+
+    .waitlist-btn:focus-visible,
+    .x-badge:focus-visible,
+    .privacy-notice a:focus-visible,
+    .footer-email a:focus-visible {
+      outline:
+        2px solid rgba(255, 255, 255, 0.65);
+
+      outline-offset: 4px;
+    }
+
+
+    /* =========================================
+       MOBILE
+    ========================================= */
+
     @media (max-width: 480px) {
+
       body {
         padding: 32px 20px;
       }
+
       .brand-logo {
         width: 100px;
       }
+
       .hero-container {
         gap: 22px;
+
         max-width: 320px;
       }
+
       .waitlist-wrapper {
         min-height: 48px;
       }
+
       .waitlist-form {
         padding: 4px 4px 4px 15px;
       }
+
       .waitlist-input {
         font-size: 0.84rem;
       }
+
       .waitlist-btn {
         padding: 8px 13px;
+
         font-size: 0.78rem;
       }
+
       .form-status {
         font-size: 0.82rem;
       }
-      .footer-email, .privacy-notice {
+
+      .footer-email,
+      .privacy-notice {
         font-size: 0.7rem;
       }
     }
+
+
+    /* =========================================
+       REDUCED MOTION
+    ========================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+      }
+
+    }
+
   </style>
 </head>
+
+
 <body>
 
-  <div class="top-spacer" aria-hidden="true"></div>
+  <div
+    class="top-spacer"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- =======================================
+       MAIN
+  ======================================== -->
 
   <main class="hero-container">
-    <img src="Logo2.png" alt="Juridik.ai" class="brand-logo">
-    
+
+    <!-- LOGO -->
+
+    <img
+      src="Logo2.png"
+      alt="Juridik.ai"
+      class="brand-logo"
+    >
+
+
+    <!-- =====================================
+         WAITLIST
+    ====================================== -->
+
     <div class="waitlist-wrapper">
-      <form class="waitlist-form" id="waitlist-form" action="https://formspree.io/f/xppzwjqk" method="POST">
-        <input 
-          type="email" 
-          name="email" 
-          class="waitlist-input" 
-          placeholder="Din e-postadress..." 
+
+      <form
+        class="waitlist-form"
+        id="waitlist-form"
+        action="https://formspree.io/f/xppzwjqk"
+        method="POST"
+      >
+
+        <input
+          type="email"
+          name="email"
+          class="waitlist-input"
+          id="email-input"
+          placeholder="Din e-postadress..."
           required
           autocomplete="email"
+          aria-label="Din e-postadress"
         >
-        <button type="submit" class="waitlist-btn" id="submit-btn">Gå med</button>
+
+
+        <button
+          type="submit"
+          class="waitlist-btn"
+          id="submit-btn"
+    >
+          Gå med
+        </button>
+
       </form>
-      
+
+
+      <!-- =====================================
+           PRIVACY
+      ====================================== -->
+
       <div class="privacy-notice">
-        Genom att anmäla dig godkänner du vår <a href="/policy">integritetspolicy</a>.
+
+        Genom att anmäla dig godkänner du vår
+
+        <a
+          href="https://juridik.ai/policy/"
+          id="privacy-link"
+        >integritetspolicy</a>.
+
       </div>
-      
-      <div id="status-msg" class="form-status">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+
+
+      <!-- =====================================
+           SUCCESS MESSAGE
+      ====================================== -->
+
+      <div
+        id="status-msg"
+        class="form-status"
+        role="status"
+        aria-live="polite"
+      >
+
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+
           <polyline points="20 6 9 17 4 12"></polyline>
+
         </svg>
-        <span>Du är uppskriven! Följ oss på X nedanför.</span>
+
+        <span>
+          Du är uppskriven! Följ oss på X nedanför.
+        </span>
+
       </div>
+
     </div>
 
-    <a href="https://x.com/juridikai" target="_blank" rel="noopener noreferrer" class="x-badge">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
+
+    <!-- =====================================
+         X
+    ====================================== -->
+
+    <a
+      href="https://x.com/juridikai"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="x-badge"
+      aria-label="Följ Juridik.ai på X"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+
         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+
       </svg>
+
       <span>@JuridikAI</span>
+
     </a>
+
   </main>
 
+
+  <!-- =======================================
+       FOOTER
+  ======================================== -->
+
   <footer class="footer">
+
     <div class="footer-email">
-      <a href="mailto:futurenomadsprojects@gmail.com">futurenomadsprojects@gmail.com</a>
+
+      <a
+        href="mailto:futurenomadsprojects@gmail.com"
+      >
+        futurenomadsprojects@gmail.com
+      </a>
+
     </div>
+
   </footer>
 
+
+  <!-- =======================================
+       JAVASCRIPT
+  ======================================== -->
+
   <script>
-    // Fix för Chrome Back-Forward Cache (bfcache-bugg):
-    // Tvingar sidan att nollställa tillståndet eller ladda om om den hämtas från cache via bakåt-knappen.
-    window.addEventListener('pageshow', function(event) {
-      if (event.persisted) {
-        window.location.reload();
-      }
-    });
+
+    // =======================================
+    // ELEMENTS
+    // =======================================
 
     const form = document.getElementById("waitlist-form");
+
     const statusMsg = document.getElementById("status-msg");
+
     const submitBtn = document.getElementById("submit-btn");
 
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-      
+    const emailInput = document.getElementById("email-input");
+
+
+    // =======================================
+    // FORM STATE
+    // =======================================
+
+    let isSubmitting = false;
+
+    let submissionCompleted = false;
+
+
+    // =======================================
+    // RESET FORM UI
+    // =======================================
+
+    function resetFormUI() {
+
+      // Don't reset while a request is running.
+      if (isSubmitting) {
+        return;
+      }
+
+      // Restore the form.
+      form.classList.remove("fade-out");
+
+      form.style.removeProperty("display");
+
+      // Restore the success message.
+      statusMsg.classList.remove("visible");
+
+      // Restore the button.
+      submitBtn.disabled = false;
+
+      submitBtn.innerText = "Gå med";
+
+      // Reset submission state.
+      submissionCompleted = false;
+
+    }
+
+
+    // =======================================
+    // BF CACHE / HISTORY RESTORE
+    // =======================================
+
+    window.addEventListener("pageshow", function (event) {
+
+      // Only reset when the browser restores
+      // the page from its back-forward cache.
+      //
+      // Initial page load is left untouched.
+      //
+      // No forced reload is performed.
+
+      if (event.persisted) {
+
+        resetFormUI();
+
+      }
+
+    });
+
+
+    // =======================================
+    // FORM SUBMISSION
+    // =======================================
+
+    form.addEventListener("submit", async function (event) {
+
+      event.preventDefault();
+
+
+      // Prevent duplicate submissions.
+      if (isSubmitting) {
+        return;
+      }
+
+
+      // Check native form validation.
+      if (!form.checkValidity()) {
+
+        form.reportValidity();
+
+        return;
+
+      }
+
+
+      // Start submission.
+      isSubmitting = true;
+
       submitBtn.disabled = true;
+
       submitBtn.innerText = "...";
 
-      const data = new FormData(form);
+
+      const formData = new FormData(form);
+
 
       try {
+
         const response = await fetch(form.action, {
+
           method: form.method,
-          body: data,
+
+          body: formData,
+
           headers: {
-            'Accept': 'application/json'
+            Accept: "application/json"
           }
+
         });
 
+
+        // =====================================
+        // SUCCESS
+        // =====================================
+
         if (response.ok) {
-          form.classList.add('fade-out');
-          
-          setTimeout(() => {
+
+          submissionCompleted = true;
+
+          form.classList.add("fade-out");
+
+
+          // Wait for fade-out animation.
+          window.setTimeout(function () {
+
+            // Avoid changing UI if the page
+            // has already navigated away.
+            if (!document.body.isConnected) {
+              return;
+            }
+
             form.style.display = "none";
+
             statusMsg.classList.add("visible");
+
           }, 450);
 
+
         } else {
+
+          // ===================================
+          // SERVER ERROR
+          // ===================================
+
           alert("Något gick fel, försök igen.");
+
           submitBtn.disabled = false;
+
           submitBtn.innerText = "Gå med";
+
         }
+
+
       } catch (error) {
+
+        // ===================================
+        // NETWORK ERROR
+        // ===================================
+
         alert("Något gick fel, försök igen.");
+
         submitBtn.disabled = false;
+
         submitBtn.innerText = "Gå med";
+
+
+      } finally {
+
+        // Submission has finished.
+        isSubmitting = false;
+
       }
+
     });
+
+
+    // =======================================
+    // OPTIONAL: RESET AFTER SUCCESS
+    // =======================================
+
+    // The success state is kept while the
+    // user remains on the landing page.
+    //
+    // When the browser restores the page
+    // from BFCache, resetFormUI() restores
+    // the original form automatically.
+
   </script>
 
 </body>
