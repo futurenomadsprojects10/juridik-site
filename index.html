@@ -82,8 +82,10 @@
       position: relative;
       min-height: 52px;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
+      gap: 10px;
     }
 
     .waitlist-form {
@@ -168,6 +170,26 @@
       opacity: 0.7;
       cursor: not-allowed;
       transform: none;
+    }
+
+    .privacy-notice {
+      font-family: 'Geist', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.01em;
+      color: rgba(255, 255, 255, 0.16);
+      text-align: center;
+      width: 100%;
+    }
+
+    .privacy-notice a {
+      color: rgba(255, 255, 255, 0.16);
+      text-decoration: underline;
+      transition: color 0.2s ease;
+    }
+
+    .privacy-notice a:hover {
+      color: rgba(255, 255, 255, 0.5);
     }
 
     @keyframes status-pop-in {
@@ -297,7 +319,7 @@
       .form-status {
         font-size: 0.82rem;
       }
-      .footer-email {
+      .footer-email, .privacy-notice {
         font-size: 0.7rem;
       }
     }
@@ -323,6 +345,10 @@
         <button type="submit" class="waitlist-btn" id="submit-btn">Gå med</button>
       </form>
       
+      <div class="privacy-notice">
+        Genom att anmäla dig godkänner du vår <a href="/policy">integritetspolicy</a>.
+      </div>
+      
       <div id="status-msg" class="form-status">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <polyline points="20 6 9 17 4 12"></polyline>
@@ -330,6 +356,10 @@
         <span>Du är uppskriven! Följ oss på X nedanför.</span>
       </div>
     </div>
+
+    <main class="hero-container">
+      <!-- (Innehållet oförändrat, länkar till /policy) -->
+    </main>
 
     <a href="https://x.com/juridikai" target="_blank" rel="noopener noreferrer" class="x-badge">
       <svg viewBox="0 0 24 24" aria-hidden="true">
