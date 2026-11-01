@@ -41,7 +41,7 @@
 
     .policy-container {
       width: 100%;
-      max-width: 600px;
+      max-width: 540px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
@@ -49,24 +49,21 @@
     }
 
     h1 {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 500;
       color: #ffffff;
-      margin-bottom: 4px;
-      letter-spacing: -0.01em;
-    }
-
-    h2 {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: #ffffff;
-      margin-top: 12px;
       margin-bottom: 2px;
       letter-spacing: -0.01em;
     }
 
+    .section-block {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
     p, li {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 300;
       line-height: 1.5;
       color: rgba(255, 255, 255, 0.45);
@@ -77,7 +74,7 @@
       padding-left: 16px;
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 4px;
     }
 
     a {
@@ -91,8 +88,8 @@
     }
 
     .back-link {
-      margin-top: 24px;
-      font-size: 0.8rem;
+      margin-top: 16px;
+      font-size: 0.78rem;
     }
 
     @media (max-width: 480px) {
@@ -100,10 +97,10 @@
         padding: 40px 24px;
       }
       h1 {
-        font-size: 1.15rem;
+        font-size: 1.05rem;
       }
       p, li {
-        font-size: 0.78rem;
+        font-size: 0.76rem;
       }
     }
   </style>
@@ -112,20 +109,27 @@
 
   <main class="policy-container">
     <h1>Integritetspolicy</h1>
-    <p><strong>Personuppgiftsansvarig:</strong> Juridik.ai-projektet</p>
-    <p><strong>Kontakt:</strong> <a href="mailto:futurenomadsprojects@gmail.com">futurenomadsprojects@gmail.com</a></p>
 
-    <h2>Insamlade uppgifter</h2>
-    <p>Vi samlar endast in din e-postadress när du anmäler dig till vår lanseringsväntelista.</p>
+    <div class="section-block">
+      <p><strong>Personuppgiftsansvarig:</strong> Juridik.ai-projektet</p>
+      <p><strong>Kontakt:</strong> <a href="mailto:futurenomadsprojects@gmail.com">futurenomadsprojects@gmail.com</a></p>
+    </div>
 
-    <h2>Laglig grund & lagringstid</h2>
-    <ul>
-      <li><strong>Samtycke:</strong> Behandlingen baseras på ditt aktiva samtycke när du fyller i din e-postadress.</li>
-      <li><strong>Lagringstid:</strong> Uppgifterna sparas fram till dess att tjänsten lanseras eller till dess att du avanmäler dig/begär radering.</li>
-    </ul>
+    <div class="section-block">
+      <p>Vi samlar endast in din e-postadress när du anmäler dig till vår lanseringsväntelista[cite: 1].</p>
+    </div>
 
-    <h2>Dina rättigheter</h2>
-    <p>Du har rätt att begära radering av dina uppgifter eller få tillgång till den information vi har sparad om dig. Om du anser att vi hanterar dina personuppgifter felaktigt har du rätt att lämna klagomål till Integritetsskyddsmyndigheten (IMY).</p>
+    <div class="section-block">
+      <p><strong>Laglig grund & lagringstid:</strong></p>
+      <ul>
+        <li><strong>Samtycke:</strong> Behandlingen baseras på ditt aktiva samtycke när du fyller i din e-postadress.</li>
+        <li><strong>Lagringstid:</strong> Uppgifterna sparas fram till dess att tjänsten lanseras eller till dess att du avanmäler dig/begär radering.</li>
+      </ul>
+    </div>
+
+    <div class="section-block">
+      <p>Du har rätt att begära radering av dina uppgifter eller få tillgång till den information vi har sparad om dig. Om du anser att vi hanterar dina personuppgifter felaktigt har du rätt att lämna klagomål till Integritetsskyddsmyndigheten (IMY).</p>
+    </div>
 
     <div class="back-link">
       <a href="/">&larr; Tillbaka till startsidan</a>
