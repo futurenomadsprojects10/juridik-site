@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="sv">
 <head>
@@ -13,6 +14,7 @@
 
   <link rel="icon" type="image/png" href="/Favicon1.png" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/png" href="/Favicon2.png" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,6 +22,7 @@
 
   <style>
     /* RESET */
+
     *,
     *::before,
     *::after {
@@ -46,8 +49,14 @@
       align-items: center;
       text-align: left;
       padding: 80px 24px;
-      font-family: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: radial-gradient(circle at 14% 20%, #040e1e 0%, #030a16 65%, #020711 100%);
+      font-family: 'Geist', -apple-system,
+        BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: radial-gradient(
+        circle at 14% 20%,
+        #040e1e 0%,
+        #030a16 65%,
+        #020711 100%
+      );
       color: rgba(255, 255, 255, 0.6);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -55,6 +64,7 @@
     }
 
     /* LAYOUT */
+
     .policy-wrapper {
       width: 100%;
       display: flex;
@@ -71,7 +81,50 @@
       gap: 32px;
     }
 
+    /* BACK NAVIGATION */
+
+    .policy-nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #a2b1c7;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      transition: color .2s ease;
+    }
+
+    .home-link svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      transition: transform .2s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .home-link:hover {
+        color: #ffffff;
+      }
+
+      .home-link:hover svg {
+        transform: translateX(-3px);
+      }
+    }
+
+    .home-link:focus-visible {
+      outline: 2px solid rgba(255, 255, 255, 0.65);
+      outline-offset: 5px;
+      border-radius: 2px;
+    }
+
     /* MAIN HEADING */
+
     h1 {
       font-size: 1.7rem;
       font-weight: 500;
@@ -82,6 +135,7 @@
     }
 
     /* SECTIONS */
+
     .section-block {
       display: flex;
       flex-direction: column;
@@ -112,8 +166,9 @@
       gap: 6px;
     }
 
-    /* LINKS */
-    a {
+    /* CONTENT LINKS */
+
+    .section-block a {
       color: rgba(255, 255, 255, 0.6);
       text-decoration: underline;
       text-underline-offset: 2px;
@@ -121,30 +176,19 @@
     }
 
     @media (hover: hover) and (pointer: fine) {
-      a:hover {
+      .section-block a:hover {
         color: rgba(255, 255, 255, 0.9);
       }
     }
 
-    a:focus-visible {
+    .section-block a:focus-visible {
       outline: 2px solid rgba(255, 255, 255, 0.65);
       outline-offset: 4px;
       border-radius: 2px;
     }
 
-    /* BACK LINK */
-    .back-link {
-      margin-top: 24px;
-      margin-bottom: 40px;
-      font-size: 0.9rem;
-    }
-
-    .back-link a {
-      font-size: 0.9rem;
-      font-weight: 300;
-    }
-
     /* RESPONSIVE */
+
     @media (max-width: 768px) {
       .policy-wrapper {
         padding-left: 0;
@@ -169,13 +213,22 @@
       li {
         font-size: 0.85rem;
       }
+
+      .home-link {
+        gap: 7px;
+        font-size: 12px;
+      }
     }
+
+    /* REDUCED MOTION */
 
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
         transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
   </style>
@@ -185,69 +238,148 @@
   <div class="policy-wrapper">
     <main class="policy-container">
 
+      <!-- BACK NAVIGATION -->
+
+      <nav class="policy-nav" aria-label="Sidnavigering">
+        <a class="home-link" href="/">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 12H5m7 7-7-7 7-7"/>
+          </svg>
+          Till startsidan
+        </a>
+      </nav>
+
+      <!-- INTRODUCTION -->
+
       <header>
         <h1>Integritetspolicy</h1>
         <p>
           Denna integritetspolicy beskriver hur vi behandlar
-          personuppgifter när du besöker vår webbplats och
-          anmäler dig till våra uppdateringar.
+          personuppgifter när du besöker vår webbplats,
+          anmäler dig till våra uppdateringar eller
+          kontaktar oss via kontaktformuläret.
         </p>
       </header>
+
+      <!-- SECTION 1 -->
 
       <section class="section-block" aria-labelledby="section-1">
         <h2 id="section-1">1. Personuppgiftsansvarig</h2>
         <p>
-          Juridik.ai ansvarar för behandlingen av personuppgifter
-          på denna webbplats. Vid frågor om hur dina uppgifter
-          hanteras kan du kontakta oss på
-          <a href="mailto:futurenomadsprojects@gmail.com">futurenomadsprojects@gmail.com</a>.
+          Juridik.ai är ett privat projekt som drivs av
+          [NAMN PÅ PERSONUPPGIFTSANSVARIG], som är
+          personuppgiftsansvarig för behandlingen av
+          personuppgifter på denna webbplats.
+
+          Vid frågor om hur dina uppgifter hanteras
+          kan du kontakta oss via vårt
+          <a href="/contact/">kontaktformulär</a>.
         </p>
       </section>
+
+      <!-- SECTION 2 -->
 
       <section class="section-block" aria-labelledby="section-2">
         <h2 id="section-2">2. Vilka uppgifter vi samlar in</h2>
         <p>
-          När du anmäler dig via vårt formulär samlar vi in den
-          e-postadress som du själv lämnar till oss.
+          När du anmäler dig via vårt formulär samlar vi in
+          den e-postadress som du själv lämnar till oss.
+        </p>
+        <p>
+          När du kontaktar oss via kontaktformuläret samlar
+          vi in din e-postadress, ditt meddelande och ditt
+          namn om du väljer att ange det.
         </p>
       </section>
+
+      <!-- SECTION 3 -->
 
       <section class="section-block" aria-labelledby="section-3">
         <h2 id="section-3">3. Ändamål och rättslig grund</h2>
         <p>
-          Vi använder din e-postadress för att skicka information
-          och uppdateringar om Juridik.ai, inklusive information
-          inför lanseringen. Behandlingen grundar sig på ditt
-          samtycke, som du när som helst kan återkalla.
+          Vi använder din e-postadress för att skicka
+          information och uppdateringar om Juridik.ai,
+          inklusive information inför lanseringen.
+
+          Behandlingen grundar sig på ditt samtycke,
+          som du när som helst kan återkalla.
+        </p>
+        <p>
+          Uppgifter som lämnas via kontaktformuläret
+          används för att ta emot, hantera och besvara
+          dina förfrågningar.
+
+          Den rättsliga grunden är vårt berättigade
+          intresse av att kunna hantera inkommande
+          meddelanden enligt artikel 6.1 f i GDPR.
         </p>
       </section>
+
+      <!-- SECTION 4 -->
 
       <section class="section-block" aria-labelledby="section-4">
         <h2 id="section-4">4. Hur länge vi sparar dina uppgifter</h2>
         <p>
           Vi sparar din e-postadress så länge du vill ta emot
           uppdateringar från oss eller tills den inte längre
-          behövs för ändamålet. Du kan när som helst begära
-          att bli avregistrerad genom att kontakta oss via e-post.
+          behövs för ändamålet.
+
+          Du kan när som helst begära att bli avregistrerad
+          genom att kontakta oss via vårt
+          <a href="/contact/">kontaktformulär</a>.
+        </p>
+        <p>
+          Uppgifter från kontaktförfrågningar sparas så länge
+          det behövs för att hantera ditt ärende och eventuell
+          nödvändig uppföljning.
+
+          Därefter raderas uppgifterna, om det inte finns
+          ett särskilt skäl att behålla dem längre.
         </p>
       </section>
+
+      <!-- SECTION 5 -->
 
       <section class="section-block" aria-labelledby="section-5">
         <h2 id="section-5">5. Tjänsteleverantörer och överföring av uppgifter</h2>
         <p>
-          Vi använder externa tjänsteleverantörer för att hantera
-          registreringar och lagra e-postadresser, bland annat
-          Formspree. Uppgifter kan överföras till länder utanför
-          EU/EES, där tillämpliga skyddsåtgärder används i enlighet
-          med dataskyddslagstiftningen.
+          Vi använder externa tjänsteleverantörer för
+          att hantera registreringar, kontaktförfrågningar
+          och lagra uppgifter, bland annat Formspree.
+
+          Uppgifter som skickas via formulären behandlas
+          genom Formspree, vars tjänst använder servrar
+          i USA.
+        </p>
+        <p>
+          Formspree uppger att EU:s standardavtalsklausuler
+          används som skyddsåtgärd för internationella
+          överföringar av personuppgifter.
+
+          Mer information finns i
+          <a
+            href="https://formspree.io/security/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Formsprees säkerhetsinformation</a>.
         </p>
       </section>
+
+      <!-- SECTION 6 -->
 
       <section class="section-block" aria-labelledby="section-6">
         <h2 id="section-6">6. Dina rättigheter</h2>
         <p>
-          Enligt dataskyddsförordningen (GDPR) har du, under
-          tillämpliga förutsättningar, rätt att:
+          Enligt dataskyddsförordningen (GDPR) har du,
+          under tillämpliga förutsättningar, rätt att:
         </p>
 
         <ul>
@@ -260,15 +392,11 @@
         </ul>
 
         <p>
-          För frågor eller för att utöva dina rättigheter kan du
-          kontakta oss på
-          <a href="mailto:futurenomadsprojects@gmail.com">futurenomadsprojects@gmail.com</a>.
+          För frågor eller för att utöva dina rättigheter
+          kan du kontakta oss via vårt
+          <a href="/contact/">kontaktformulär</a>.
         </p>
       </section>
-
-      <div class="back-link">
-        <a href="/">&larr; Tillbaka till startsidan</a>
-      </div>
 
     </main>
   </div>
