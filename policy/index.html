@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Integritetspolicy - Juridik.ai</title>
-  <meta name="description" content="Läs om hur Juridik.ai behandlar personuppgifter och vilka rättigheter du har.">
+  <meta name="description" content="Information om hur Juridik.ai behandlar personuppgifter.">
   <meta name="theme-color" content="#030d1d">
   <meta name="color-scheme" content="dark">
 
@@ -81,7 +81,7 @@
       gap: 32px;
     }
 
-    /* BACK NAVIGATION */
+    /* NAVIGATION */
 
     .policy-nav {
       display: flex;
@@ -118,12 +118,12 @@
     }
 
     .home-link:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.65);
+      outline: 2px solid rgba(255, 255, 255, .65);
       outline-offset: 5px;
       border-radius: 2px;
     }
 
-    /* MAIN HEADING */
+    /* TYPOGRAPHY */
 
     h1 {
       font-size: 1.7rem;
@@ -133,8 +133,6 @@
       line-height: 1.3;
       margin-bottom: 4px;
     }
-
-    /* SECTIONS */
 
     .section-block {
       display: flex;
@@ -150,8 +148,7 @@
       color: rgba(255, 255, 255, 0.9);
     }
 
-    p,
-    li {
+    p {
       font-size: 0.95rem;
       font-weight: 300;
       line-height: 1.7;
@@ -159,20 +156,13 @@
       letter-spacing: 0.01em;
     }
 
-    ul {
-      padding-left: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    /* CONTENT LINKS */
+    /* LINKS */
 
     .section-block a {
       color: rgba(255, 255, 255, 0.6);
       text-decoration: underline;
       text-underline-offset: 2px;
-      transition: color 0.2s ease;
+      transition: color .2s ease;
     }
 
     @media (hover: hover) and (pointer: fine) {
@@ -182,7 +172,7 @@
     }
 
     .section-block a:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.65);
+      outline: 2px solid rgba(255, 255, 255, .65);
       outline-offset: 4px;
       border-radius: 2px;
     }
@@ -209,8 +199,7 @@
       }
 
       h2,
-      p,
-      li {
+      p {
         font-size: 0.85rem;
       }
 
@@ -220,15 +209,12 @@
       }
     }
 
-    /* REDUCED MOTION */
-
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
       }
     }
   </style>
@@ -238,7 +224,7 @@
   <div class="policy-wrapper">
     <main class="policy-container">
 
-      <!-- BACK NAVIGATION -->
+      <!-- NAVIGATION -->
 
       <nav class="policy-nav" aria-label="Sidnavigering">
         <a class="home-link" href="/">
@@ -262,25 +248,19 @@
       <header>
         <h1>Integritetspolicy</h1>
         <p>
-          Denna integritetspolicy beskriver hur vi behandlar
-          personuppgifter när du besöker vår webbplats,
-          anmäler dig till våra uppdateringar eller
-          kontaktar oss via kontaktformuläret.
+          Här beskriver vi hur Juridik.ai behandlar
+          personuppgifter.
         </p>
       </header>
 
       <!-- SECTION 1 -->
 
       <section class="section-block" aria-labelledby="section-1">
-        <h2 id="section-1">1. Personuppgiftsansvarig</h2>
+        <h2 id="section-1">1. Ansvar och kontakt</h2>
         <p>
-          Juridik.ai är ett privat projekt som drivs av
-          [NAMN PÅ PERSONUPPGIFTSANSVARIG], som är
-          personuppgiftsansvarig för behandlingen av
-          personuppgifter på denna webbplats.
-
-          Vid frågor om hur dina uppgifter hanteras
-          kan du kontakta oss via vårt
+          Juridik.ai ansvarar för behandlingen av
+          personuppgifter på webbplatsen.
+          Du når oss via vårt
           <a href="/contact/">kontaktformulär</a>.
         </p>
       </section>
@@ -288,113 +268,80 @@
       <!-- SECTION 2 -->
 
       <section class="section-block" aria-labelledby="section-2">
-        <h2 id="section-2">2. Vilka uppgifter vi samlar in</h2>
+        <h2 id="section-2">2. Uppgifter och användning</h2>
         <p>
-          När du anmäler dig via vårt formulär samlar vi in
-          den e-postadress som du själv lämnar till oss.
+          Vid anmälan samlar vi in din e-postadress för
+          att skicka uppdateringar om Juridik.ai
+          (samtycke).
         </p>
         <p>
-          När du kontaktar oss via kontaktformuläret samlar
-          vi in din e-postadress, ditt meddelande och ditt
-          namn om du väljer att ange det.
+          Vid kontakt behandlar vi din e-postadress,
+          ditt meddelande och eventuellt namn för att
+          besvara förfrågan (berättigat intresse).
+        </p>
+        <p>
+          Vid besök kan tekniska uppgifter, såsom
+          IP-adress, behandlas för webbplatsens drift
+          och säkerhet (berättigat intresse).
+          Uppgifterna lämnas frivilligt i formulären,
+          men e-postadress krävs för att få uppdateringar
+          eller svar.
         </p>
       </section>
 
       <!-- SECTION 3 -->
 
       <section class="section-block" aria-labelledby="section-3">
-        <h2 id="section-3">3. Ändamål och rättslig grund</h2>
+        <h2 id="section-3">3. Lagring</h2>
         <p>
-          Vi använder din e-postadress för att skicka
-          information och uppdateringar om Juridik.ai,
-          inklusive information inför lanseringen.
-
-          Behandlingen grundar sig på ditt samtycke,
-          som du när som helst kan återkalla.
-        </p>
-        <p>
-          Uppgifter som lämnas via kontaktformuläret
-          används för att ta emot, hantera och besvara
-          dina förfrågningar.
-
-          Den rättsliga grunden är vårt berättigade
-          intresse av att kunna hantera inkommande
-          meddelanden enligt artikel 6.1 f i GDPR.
+          Anmälningsuppgifter sparas tills du avregistrerar
+          dig eller utskicken upphör. Kontaktuppgifter
+          sparas tills ärendet är avslutat och uppgifterna
+          inte längre behövs. Tekniska uppgifter sparas
+          så länge de behövs för drift och säkerhet.
         </p>
       </section>
 
       <!-- SECTION 4 -->
 
       <section class="section-block" aria-labelledby="section-4">
-        <h2 id="section-4">4. Hur länge vi sparar dina uppgifter</h2>
+        <h2 id="section-4">4. Tjänsteleverantörer</h2>
         <p>
-          Vi sparar din e-postadress så länge du vill ta emot
-          uppdateringar från oss eller tills den inte längre
-          behövs för ändamålet.
-
-          Du kan när som helst begära att bli avregistrerad
-          genom att kontakta oss via vårt
-          <a href="/contact/">kontaktformulär</a>.
-        </p>
-        <p>
-          Uppgifter från kontaktförfrågningar sparas så länge
-          det behövs för att hantera ditt ärende och eventuell
-          nödvändig uppföljning.
-
-          Därefter raderas uppgifterna, om det inte finns
-          ett särskilt skäl att behålla dem längre.
+          Vi använder Formspree för formulären,
+          webbhosting för driften och Google Fonts
+          för typsnitt. Formspree behandlar uppgifter
+          i USA och uppger att EU:s standardavtalsklausuler
+          används som skyddsåtgärd.
+          Läs mer hos
+          <a
+            href="https://formspree.io/security/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Formspree</a>.
         </p>
       </section>
 
       <!-- SECTION 5 -->
 
       <section class="section-block" aria-labelledby="section-5">
-        <h2 id="section-5">5. Tjänsteleverantörer och överföring av uppgifter</h2>
+        <h2 id="section-5">5. Dina rättigheter</h2>
         <p>
-          Vi använder externa tjänsteleverantörer för
-          att hantera registreringar, kontaktförfrågningar
-          och lagra uppgifter, bland annat Formspree.
-
-          Uppgifter som skickas via formulären behandlas
-          genom Formspree, vars tjänst använder servrar
-          i USA.
+          Du kan begära tillgång till, rättelse,
+          radering eller begränsning av dina uppgifter,
+          invända mot behandling och i vissa fall
+          begära dataportabilitet.
+          Du kan när som helst återkalla ditt samtycke
+          utan att det påverkar tidigare laglig behandling.
+          Du har även rätt att klaga hos
+          <a href="https://www.imy.se/"
+             target="_blank"
+             rel="noopener noreferrer"
+          >Integritetsskyddsmyndigheten (IMY)</a>.
         </p>
         <p>
-          Formspree uppger att EU:s standardavtalsklausuler
-          används som skyddsåtgärd för internationella
-          överföringar av personuppgifter.
-
-          Mer information finns i
-          <a
-            href="https://formspree.io/security/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Formsprees säkerhetsinformation</a>.
-        </p>
-      </section>
-
-      <!-- SECTION 6 -->
-
-      <section class="section-block" aria-labelledby="section-6">
-        <h2 id="section-6">6. Dina rättigheter</h2>
-        <p>
-          Enligt dataskyddsförordningen (GDPR) har du,
-          under tillämpliga förutsättningar, rätt att:
-        </p>
-
-        <ul>
-          <li>Begära tillgång till dina personuppgifter.</li>
-          <li>Begära rättelse eller radering av dina uppgifter.</li>
-          <li>Begära begränsning av behandlingen eller invända mot den.</li>
-          <li>Återkalla ditt samtycke när som helst.</li>
-          <li>I vissa fall begära att få ut dina uppgifter i ett överförbart format.</li>
-          <li>Lämna klagomål till Integritetsskyddsmyndigheten (IMY).</li>
-        </ul>
-
-        <p>
-          För frågor eller för att utöva dina rättigheter
-          kan du kontakta oss via vårt
-          <a href="/contact/">kontaktformulär</a>.
+          Kontakta oss via
+          <a href="/contact/">kontaktformuläret</a>
+          för att utöva dina rättigheter.
         </p>
       </section>
 
