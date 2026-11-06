@@ -209,12 +209,15 @@
       }
     }
 
+    /* REDUCED MOTION */
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
         transition-duration: .01ms !important;
         animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
       }
     }
   </style>
@@ -307,17 +310,14 @@
       <section class="section-block" aria-labelledby="section-4">
         <h2 id="section-4">4. Tjänsteleverantörer</h2>
         <p>
-          Vi använder Formspree för formulären,
-          webbhosting för driften och Google Fonts
-          för typsnitt. Formspree behandlar uppgifter
-          i USA och uppger att EU:s standardavtalsklausuler
-          används som skyddsåtgärd.
-          Läs mer hos
-          <a
-            href="https://formspree.io/security/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Formspree</a>.
+          Vi använder Formspree för att hantera formulär,
+          externa tjänster för webbplatsens drift och
+          Google Fonts för typsnitt.
+          Personuppgifter kan överföras till USA med
+          skyddsåtgärder enligt GDPR, däribland
+          standardavtalsklausuler.
+          Information om skyddsåtgärderna kan begäras
+          via vårt <a href="/contact/">kontaktformulär</a>.
         </p>
       </section>
 
@@ -332,11 +332,8 @@
           begära dataportabilitet.
           Du kan när som helst återkalla ditt samtycke
           utan att det påverkar tidigare laglig behandling.
-          Du har även rätt att klaga hos
-          <a href="https://www.imy.se/"
-             target="_blank"
-             rel="noopener noreferrer"
-          >Integritetsskyddsmyndigheten (IMY)</a>.
+          Du har även rätt att lämna klagomål till
+          Integritetsskyddsmyndigheten (IMY).
         </p>
         <p>
           Kontakta oss via
