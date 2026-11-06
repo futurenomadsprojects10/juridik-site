@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#030d1d">
-
   <meta name="description" content="Kontakta Juridik.ai med frågor, idéer och förslag via vårt kontaktformulär.">
   <link rel="canonical" href="https://juridik.ai/contact/">
   <title>Kontakt — Juridik.ai</title>
@@ -105,7 +104,7 @@
       padding: 36px 0;
     }
 
-    /* NAVIGATION */
+    /* BACK NAVIGATION */
 
     .contact-nav {
       grid-area: nav;
@@ -355,7 +354,8 @@
       cursor: pointer;
       transition:
         background .2s ease,
-        transform .2s ease;
+        transform .2s ease,
+        opacity .2s ease;
     }
 
     .send svg {
@@ -369,7 +369,7 @@
     }
 
     .send:disabled {
-      opacity: .75;
+      opacity: .72;
       cursor: wait;
     }
 
@@ -400,18 +400,49 @@
       pointer-events: none;
     }
 
-    /* SUCCESS ANIMATION */
+    /* CENTERED SUCCESS MESSAGE */
 
-    @keyframes status-pop-in {
-      from {
-        opacity: 0;
-        transform: translateY(8px) scale(.96);
-      }
+    .contact-success {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 11px;
+      padding: 12px;
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(7px);
+      transition:
+        opacity .55s .2s cubic-bezier(.16, 1, .3, 1),
+        transform .55s .2s cubic-bezier(.16, 1, .3, 1),
+        visibility .55s .2s;
+    }
 
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
+    .submission-swap.is-success .contact-success {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .success-icon {
+      width: 39px;
+      height: 39px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 5px;
+      border: 1px solid rgba(208, 222, 244, .12);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .035);
+      color: #e6edf8;
+    }
+
+    .success-icon svg {
+      width: 18px;
+      height: 18px;
     }
 
     @keyframes draw-check {
@@ -424,60 +455,56 @@
       }
     }
 
-    .contact-success {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 10px;
-      padding: 80px 4px 0;
-      align-self: start;
-      color: rgba(255,255,255,.9);
-      font-size: 15px;
-      line-height: 1.5;
-      letter-spacing: -.01em;
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .submission-swap.is-success .contact-success {
-      visibility: visible;
-      animation:
-        status-pop-in .6s
-        cubic-bezier(.16, 1, .3, 1) forwards;
-    }
-
-    .contact-success svg {
-      width: 17px;
-      height: 17px;
-      flex-shrink: 0;
-    }
-
-    .contact-success svg polyline {
+    .success-icon polyline {
       stroke-dasharray: 24;
       stroke-dashoffset: 24;
     }
 
-    .submission-swap.is-success
-    .contact-success svg polyline {
+    .submission-swap.is-success .success-icon polyline {
       animation:
-        draw-check .5s .2s
+        draw-check .5s .4s
         cubic-bezier(.16, 1, .3, 1) forwards;
+    }
+
+    .success-title {
+      margin: 0;
+      color: #f5f7fb;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -.018em;
+      line-height: 1.45;
+    }
+
+    .success-description {
+      margin: 0;
+      color: #91a1ba;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.65;
     }
 
     /* ERROR MESSAGE */
 
     .form-error {
-      display: none;
-      margin: 15px 0 0;
-      color: rgba(255,190,190,.85);
+      min-height: 32px;
+      margin: 12px 0 0;
+      color: #dca6a6;
       font-size: 12px;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 1.5;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      transition:
+        opacity .25s ease,
+        transform .25s ease,
+        visibility .25s ease;
     }
 
     .form-error.is-visible {
-      display: block;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
 
     /* SPAM PROTECTION */
@@ -592,6 +619,10 @@
       .send {
         min-width: 190px;
       }
+
+      .contact-success {
+        min-height: 375px;
+      }
     }
 
     @media (max-width: 420px) {
@@ -628,10 +659,6 @@
       .send {
         width: 100%;
       }
-
-      .contact-success {
-        padding-top: 50px;
-      }
     }
 
     /* ACCESSIBILITY */
@@ -650,7 +677,6 @@
 
 <body>
   <div class="shell">
-
     <main class="contact">
 
       <!-- BACK NAVIGATION -->
@@ -724,6 +750,8 @@
           id="submission-swap"
         >
 
+          <!-- FORM -->
+
           <div
             class="contact-form-area"
             id="contact-form-area"
@@ -789,7 +817,6 @@
                 <div
                   id="message-counter"
                   class="character-counter"
-                  aria-label="Antal tecken av maximalt 2 000"
                 >
                   0 / 2 000
                 </div>
@@ -872,23 +899,29 @@
             aria-live="polite"
             aria-atomic="true"
           >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              aria-hidden="true"
-            >
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
 
-            <span>
-              Tack! Ditt meddelande har skickats.
-            </span>
+            <div class="success-icon" aria-hidden="true">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+            </div>
+
+            <p class="success-title">
+              Meddelandet är skickat.
+            </p>
+
+            <p class="success-description">
+              Vi återkommer så snart vi kan.
+            </p>
+
           </div>
-
         </div>
 
         <noscript>
@@ -1092,18 +1125,18 @@
           if (!response.ok) {
             if (response.status === 429) {
               showError(
-                'För många försök just nu. Försök igen senare.'
+                'För många försök. Försök igen senare.'
               );
             } else if (
               response.status === 400 ||
               response.status === 422
             ) {
               showError(
-                'Meddelandet kunde inte skickas. Kontrollera uppgifterna och försök igen.'
+                'Kontrollera uppgifterna och försök igen.'
               );
             } else {
               showError(
-                'Meddelandet kunde inte skickas. Försök igen senare.'
+                'Kunde inte skicka. Försök igen.'
               );
             }
 
@@ -1127,15 +1160,15 @@
             error.name === 'AbortError'
           ) {
             showError(
-              'Ingen bekräftelse kom fram. Kontrollera om meddelandet mottagits innan du försöker igen.'
+              'Ingen bekräftelse mottogs. Kontrollera innan du försöker igen.'
             );
           } else if (error instanceof TypeError) {
             showError(
-              'Kunde inte ansluta. Kontrollera internetanslutningen och försök igen.'
+              'Anslutningen misslyckades. Kontrollera internetanslutningen.'
             );
           } else {
             showError(
-              'Meddelandet kunde inte skickas. Försök igen.'
+              'Kunde inte skicka. Försök igen.'
             );
           }
 
