@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#030d1d">
-
   <meta name="description" content="Kontakta Juridik.ai med frågor, idéer och förslag via vårt kontaktformulär.">
   <link rel="canonical" href="https://juridik.ai/contact/">
   <title>Kontakt — Juridik.ai</title>
@@ -15,11 +14,15 @@
   <link rel="icon" type="image/png" href="/Favicon1.png" media="(prefers-color-scheme: light)">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
-
   <style>
+    @font-face {
+      font-family: 'Instrument Sans';
+      src: url('/fonts/InstrumentSans.woff2') format('woff2');
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+    }
+
     :root {
       color-scheme: dark;
       --page: #030d1d;
@@ -44,7 +47,7 @@
       margin: 0;
       min-height: 100vh;
       min-height: 100dvh;
-      font-family: "Geist", -apple-system,
+      font-family: 'Instrument Sans', -apple-system,
         BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--white);
       background: radial-gradient(
@@ -92,9 +95,7 @@
     .contact {
       flex: 1;
       display: grid;
-      grid-template-columns:
-        minmax(0, 1.02fr)
-        minmax(0, .98fr);
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
       grid-template-rows: auto auto;
       grid-template-areas:
         "nav editorial"
@@ -346,7 +347,7 @@
       gap: 20px;
       min-height: 47px;
       padding: 0 19px;
-      border: 1px solid rgba(255,255,255,.86);
+      border: 1px solid rgba(255, 255, 255, .86);
       border-radius: 5px;
       background: #f8f9fc;
       color: #071329;
@@ -374,7 +375,7 @@
       cursor: wait;
     }
 
-    /* FORM AND SUCCESS TRANSITION */
+    /* FORM AND SUCCESS STATE */
 
     .submission-swap {
       display: grid;
@@ -400,8 +401,6 @@
       visibility: hidden;
       pointer-events: none;
     }
-
-    /* CENTERED SUCCESS MESSAGE */
 
     .contact-success {
       align-self: stretch;
@@ -447,13 +446,8 @@
     }
 
     @keyframes draw-check {
-      from {
-        stroke-dashoffset: 24;
-      }
-
-      to {
-        stroke-dashoffset: 0;
-      }
+      from { stroke-dashoffset: 24; }
+      to { stroke-dashoffset: 0; }
     }
 
     .success-icon polyline {
@@ -662,8 +656,6 @@
       }
     }
 
-    /* ACCESSIBILITY */
-
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -678,6 +670,7 @@
 
 <body>
   <div class="shell">
+
     <main class="contact">
 
       <!-- BACK NAVIGATION -->
@@ -702,9 +695,7 @@
       <!-- RIGHT COLUMN -->
 
       <section class="editorial" aria-labelledby="page-title">
-        <h1 id="page-title">
-          Kontakt<span class="dot">.</span>
-        </h1>
+        <h1 id="page-title">Kontakt<span class="dot">.</span></h1>
 
         <p class="lead">
           Har du en fråga, en idé eller ett förslag?
@@ -742,12 +733,8 @@
 
         <div class="submission-swap" id="submission-swap">
 
-          <!-- CONTACT FORM -->
+          <div class="contact-form-area" id="contact-form-area">
 
-          <div
-            class="contact-form-area"
-            id="contact-form-area"
-          >
             <form
               id="contact-form"
               action="https://formspree.io/f/xaeekvnp"
@@ -756,8 +743,7 @@
 
               <div class="field">
                 <label for="contact-name">
-                  Namn
-                  <span class="optional">(valfritt)</span>
+                  Namn <span class="optional">(valfritt)</span>
                 </label>
 
                 <input
@@ -784,9 +770,7 @@
               </div>
 
               <div class="field">
-                <label for="contact-message">
-                  Meddelande
-                </label>
+                <label for="contact-message">Meddelande</label>
 
                 <textarea
                   id="contact-message"
@@ -800,12 +784,10 @@
                 <div
                   id="message-counter"
                   class="character-counter"
-                >
-                  0 / 2 000
-                </div>
+                >0 / 2 000</div>
               </div>
 
-              <!-- SPAM PROTECTION -->
+              <!-- HONEYPOT -->
 
               <div class="honeypot" aria-hidden="true">
                 <label for="contact-company">
@@ -827,14 +809,11 @@
                 value="Nytt kontaktmeddelande – Juridik.ai"
               >
 
-              <!-- FORM FOOTER -->
-
               <div class="footer-form">
 
                 <p class="privacy">
-                  Skicka inte personnummer eller känsliga
-                  uppgifter. Läs vår
-                  <a href="/policy/">integritetspolicy</a>.
+                  Skicka inte personnummer eller känsliga uppgifter.
+                  Läs vår <a href="/policy/">integritetspolicy</a>.
                 </p>
 
                 <button
@@ -858,9 +837,8 @@
                     <path d="M5 12h14m-7-7 7 7-7 7"/>
                   </svg>
                 </button>
-              </div>
 
-              <!-- ERROR MESSAGE -->
+              </div>
 
               <p
                 id="form-error"
@@ -871,9 +849,10 @@
               ></p>
 
             </form>
+
           </div>
 
-          <!-- SUCCESS MESSAGE -->
+          <!-- SUCCESS STATE -->
 
           <div
             id="contact-success"
@@ -882,7 +861,6 @@
             aria-live="polite"
             aria-atomic="true"
           >
-
             <div class="success-icon" aria-hidden="true">
               <svg
                 viewBox="0 0 24 24"
@@ -903,51 +881,36 @@
             <p class="success-description">
               Vi återkommer så snart vi kan.
             </p>
-
           </div>
+
         </div>
 
         <noscript>
           <p class="privacy">
-            JavaScript är avstängt. Formuläret skickas
-            då via Formsprees vanliga formulärhantering.
+            JavaScript är avstängt. Formuläret skickas då via
+            Formsprees vanliga formulärhantering.
           </p>
         </noscript>
 
       </section>
+
     </main>
+
   </div>
 
   <script>
     (() => {
       'use strict';
 
-      const wrapper =
-        document.getElementById('submission-swap');
-
-      const formArea =
-        document.getElementById('contact-form-area');
-
-      const form =
-        document.getElementById('contact-form');
-
-      const success =
-        document.getElementById('contact-success');
-
-      const button =
-        document.getElementById('submit-button');
-
-      const buttonLabel =
-        document.getElementById('submit-label');
-
-      const errorMsg =
-        document.getElementById('form-error');
-
-      const messageInput =
-        document.getElementById('contact-message');
-
-      const messageCounter =
-        document.getElementById('message-counter');
+      const wrapper = document.getElementById('submission-swap');
+      const formArea = document.getElementById('contact-form-area');
+      const form = document.getElementById('contact-form');
+      const success = document.getElementById('contact-success');
+      const button = document.getElementById('submit-button');
+      const buttonLabel = document.getElementById('submit-label');
+      const errorMsg = document.getElementById('form-error');
+      const messageInput = document.getElementById('contact-message');
+      const messageCounter = document.getElementById('message-counter');
 
       const REQUEST_TIMEOUT_MS = 15000;
       const MAX_MESSAGE_LENGTH = 2000;
@@ -957,8 +920,6 @@
       let timeoutId = null;
       let requestVersion = 0;
       let pageIsActive = true;
-
-      /* CHARACTER COUNTER */
 
       function updateCounter() {
         const length = messageInput.value.length;
@@ -972,8 +933,6 @@
         );
       }
 
-      /* ERRORS */
-
       function clearError() {
         errorMsg.textContent = '';
         errorMsg.classList.remove('is-visible');
@@ -983,8 +942,6 @@
         errorMsg.textContent = message;
         errorMsg.classList.add('is-visible');
       }
-
-      /* REQUEST MANAGEMENT */
 
       function clearRequestTimeout() {
         if (timeoutId !== null) {
@@ -1020,13 +977,10 @@
       }
 
       success.inert = true;
+
       updateCounter();
 
-      messageInput.addEventListener(
-        'input',
-        updateCounter
-      );
-
+      messageInput.addEventListener('input', updateCounter);
       form.addEventListener('input', clearError);
 
       window.addEventListener('pageshow', (event) => {
@@ -1041,8 +995,6 @@
         pageIsActive = false;
         cancelPendingRequest();
       });
-
-      /* FORM SUBMISSION */
 
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -1135,10 +1087,7 @@
             return;
           }
 
-          if (
-            timedOut ||
-            error.name === 'AbortError'
-          ) {
+          if (timedOut || error.name === 'AbortError') {
             showError(
               'Ingen bekräftelse mottogs. Kontrollera innan du försöker igen.'
             );
@@ -1159,9 +1108,7 @@
             controller = null;
             isSubmitting = false;
 
-            if (
-              !wrapper.classList.contains('is-success')
-            ) {
+            if (!wrapper.classList.contains('is-success')) {
               button.disabled = false;
               buttonLabel.textContent = 'Skicka meddelande';
             }
