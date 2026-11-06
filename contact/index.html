@@ -5,18 +5,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
-  <meta name="theme-color" content="#030a16">
+  <meta name="theme-color" content="#030d1d">
   <meta name="description" content="Kontakta Juridik.ai med frågor, idéer och förslag via vårt kontaktformulär.">
   <link rel="canonical" href="https://juridik.ai/contact/">
   <title>Kontakt — Juridik.ai</title>
 
   <link rel="icon" type="image/png" href="/Favicon2.png" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" href="/Favicon1.png" media="(prefers-color-scheme: light)">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
       color-scheme: dark;
-      --page: #030b1a;
+      --page: #030d1d;
       --white: #f5f7fb;
       --secondary: #a1afc5;
       --soft: #73839d;
@@ -25,35 +30,41 @@
       --focus: #d3e1ff;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
     html {
       min-height: 100%;
+      background-color: var(--page);
     }
 
     body {
       margin: 0;
       min-height: 100vh;
       min-height: 100dvh;
-      font-family: "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Geist", "Inter", -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--white);
       background: radial-gradient(
-        ellipse 83% 87% at 49% 44%,
-        #091b37 0%,
-        #06142a 49%,
-        #030b1b 81%,
-        #020713 100%
+        circle at center,
+        #081d3b 0%,
+        #030d1d 55%,
+        #01060e 100%
       );
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     a {
       color: inherit;
     }
 
-    button, input, textarea {
+    button,
+    input,
+    textarea {
       font: inherit;
     }
 
@@ -68,6 +79,8 @@
       outline: none;
     }
 
+    /* LAYOUT */
+
     .shell {
       width: min(100% - 112px, 1232px);
       min-height: 100vh;
@@ -76,6 +89,8 @@
       flex-direction: column;
       margin: 0 auto;
     }
+
+    /* HEADER */
 
     .header {
       display: flex;
@@ -109,13 +124,19 @@
       transform: translateX(-3px);
     }
 
+    /* CONTACT LAYOUT */
+
     .contact {
       flex: 1;
       display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
+      grid-template-columns:
+        minmax(0, 1.02fr)
+        minmax(0, .98fr);
       align-items: center;
       padding: 55px 0 93px;
     }
+
+    /* RIGHT COLUMN */
 
     .editorial {
       order: 2;
@@ -147,6 +168,36 @@
       letter-spacing: -.035em;
     }
 
+    /* X LINK */
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      gap: 7px;
+      margin-top: 9px;
+      color: #8b9bb4;
+      font-size: 13px;
+      text-decoration: none;
+      transition: color .25s ease;
+    }
+
+    .social-link:hover {
+      color: #fff;
+    }
+
+    .social-link svg {
+      width: 13px;
+      height: 13px;
+      transition: transform .25s ease;
+    }
+
+    .social-link:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    /* LEFT COLUMN */
+
     .form-column {
       order: 1;
       width: 100%;
@@ -177,6 +228,8 @@
       font-variant-numeric: tabular-nums;
       letter-spacing: .03em;
     }
+
+    /* FORM FIELDS */
 
     .field {
       padding-top: 24px;
@@ -243,6 +296,8 @@
       color: #fff;
     }
 
+    /* FORM FOOTER */
+
     .footer-form {
       display: flex;
       align-items: flex-end;
@@ -269,6 +324,8 @@
       color: #fff;
     }
 
+    /* SUBMIT BUTTON */
+
     .send {
       flex-shrink: 0;
       display: inline-flex;
@@ -284,7 +341,9 @@
       font-size: 13px;
       font-weight: 650;
       cursor: pointer;
-      transition: background .2s ease, transform .2s ease;
+      transition:
+        background .2s ease,
+        transform .2s ease;
     }
 
     .send svg {
@@ -302,28 +361,114 @@
       cursor: wait;
     }
 
-    .status {
+    /* FORM / SUCCESS TRANSITION */
+
+    .submission-swap {
+      display: grid;
+      width: 100%;
+    }
+
+    .contact-form-area,
+    .contact-success {
+      grid-area: 1 / 1;
+      min-width: 0;
+    }
+
+    .contact-form-area {
+      opacity: 1;
+      visibility: visible;
+      transition:
+        opacity .35s ease,
+        visibility .35s ease;
+    }
+
+    .submission-swap.is-success .contact-form-area {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    /* SUCCESS ANIMATION */
+
+    @keyframes status-pop-in {
+      from {
+        opacity: 0;
+        transform: translateY(8px) scale(.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes draw-check {
+      from {
+        stroke-dashoffset: 24;
+      }
+
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .contact-success {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      padding: 80px 4px 0;
+      align-self: start;
+      color: rgba(255,255,255,.9);
+      font-size: 15px;
+      line-height: 1.5;
+      letter-spacing: -.01em;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .submission-swap.is-success .contact-success {
+      visibility: visible;
+      animation:
+        status-pop-in .6s
+        cubic-bezier(.16, 1, .3, 1) forwards;
+    }
+
+    .contact-success svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    .contact-success svg polyline {
+      stroke-dasharray: 24;
+      stroke-dashoffset: 24;
+    }
+
+    .submission-swap.is-success
+    .contact-success svg polyline {
+      animation:
+        draw-check .5s .2s
+        cubic-bezier(.16, 1, .3, 1) forwards;
+    }
+
+    /* ERROR MESSAGE */
+
+    .form-error {
       display: none;
-      margin: 16px 0 0;
-      padding: 11px 13px;
-      border-left: 2px solid;
+      margin: 15px 0 0;
+      color: rgba(255,190,190,.85);
       font-size: 12px;
-      line-height: 1.65;
+      font-weight: 300;
+      line-height: 1.5;
     }
 
-    .status[data-state="success"] {
+    .form-error.is-visible {
       display: block;
-      color: #bce8d3;
-      border-color: #91dcb8;
-      background: rgba(27, 99, 73, .15);
     }
 
-    .status[data-state="error"] {
-      display: block;
-      color: #f6c4c4;
-      border-color: #e6a1a1;
-      background: rgba(124, 39, 49, .14);
-    }
+    /* SPAM PROTECTION */
 
     .honeypot {
       position: absolute !important;
@@ -332,6 +477,8 @@
       height: 1px;
       overflow: hidden;
     }
+
+    /* TABLET */
 
     @media (max-width: 1050px) {
       .shell {
@@ -360,6 +507,8 @@
         align-self: flex-start;
       }
     }
+
+    /* MOBILE */
 
     @media (max-width: 760px) {
       .shell {
@@ -447,10 +596,20 @@
       .send {
         width: 100%;
       }
+
+      .contact-success {
+        padding-top: 50px;
+      }
     }
 
+    /* ACCESSIBILITY */
+
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
         transition-duration: .01ms !important;
       }
     }
@@ -460,12 +619,19 @@
 <body>
   <div class="shell">
 
+    <!-- NAVIGATION -->
+
     <header class="header">
       <a class="home-link" href="/">
-        <svg viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="1.7"
-             stroke-linecap="round" stroke-linejoin="round"
-             aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.7"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
           <path d="M19 12H5m7 7-7-7 7-7"/>
         </svg>
         Till startsidan
@@ -474,104 +640,214 @@
 
     <main class="contact">
 
-      <section class="editorial" aria-labelledby="page-title">
-        <h1 id="page-title">Kontakt<span class="dot">.</span></h1>
-        <p class="lead">Har du en fråga, en idé eller ett förslag?</p>
+      <!-- RIGHT COLUMN -->
+
+      <section
+        class="editorial"
+        aria-labelledby="page-title"
+      >
+        <h1 id="page-title">
+          Kontakt<span class="dot">.</span>
+        </h1>
+
+        <p class="lead">
+          Har du en fråga, en idé eller ett förslag?
+        </p>
+
+        <a
+          class="social-link"
+          href="https://x.com/juridikai"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Följ @juridikai på X
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M7 17 17 7M7 7h10v10"/>
+          </svg>
+        </a>
       </section>
 
-      <section class="form-column" aria-labelledby="form-title">
+      <!-- LEFT COLUMN -->
+
+      <section
+        class="form-column"
+        aria-labelledby="form-title"
+      >
 
         <div class="form-heading">
           <h2 id="form-title">Skicka ett meddelande</h2>
-          <span class="index" aria-hidden="true">01 / 01</span>
+          <span class="index" aria-hidden="true">
+            01 / 01
+          </span>
         </div>
 
-        <form id="contact-form"
-              action="https://formspree.io/f/xaeekvnp"
-              method="POST">
+        <div
+          class="submission-swap"
+          id="submission-swap"
+        >
 
-          <div class="field">
-            <label for="contact-name">
-              Namn <span class="optional">(valfritt)</span>
-            </label>
-            <input
-              id="contact-name"
-              type="text"
-              name="name"
-              autocomplete="name"
-              maxlength="100"
-              placeholder="Ditt namn"
-            >
-          </div>
-
-          <div class="field">
-            <label for="contact-email">E-postadress</label>
-            <input
-              id="contact-email"
-              type="email"
-              name="email"
-              autocomplete="email"
-              maxlength="254"
-              placeholder="namn@exempel.se"
-              required
-            >
-          </div>
-
-          <div class="field">
-            <label for="contact-message">Meddelande</label>
-            <textarea
-              id="contact-message"
-              name="message"
-              placeholder="Skriv ditt meddelande..."
-              required
-              minlength="10"
-              maxlength="5000"
-            ></textarea>
-          </div>
-
-          <div class="honeypot" aria-hidden="true">
-            <label for="contact-company">Lämna detta fält tomt</label>
-            <input
-              id="contact-company"
-              name="_gotcha"
-              type="text"
-              tabindex="-1"
-              autocomplete="off"
-            >
-          </div>
-
-          <input
-            type="hidden"
-            name="_subject"
-            value="Nytt kontaktmeddelande – Juridik.ai"
+          <div
+            class="contact-form-area"
+            id="contact-form-area"
           >
 
-          <div class="footer-form">
-            <p class="privacy">
-              Skicka inte personnummer eller känsliga uppgifter.
-              Läs vår <a href="/policy/">integritetspolicy</a>.
-            </p>
+            <form
+              id="contact-form"
+              action="https://formspree.io/f/xaeekvnp"
+              method="POST"
+            >
 
-            <button class="send" id="submit-button" type="submit">
-              <span id="submit-label">Skicka meddelande</span>
-              <svg viewBox="0 0 24 24" fill="none"
-                   stroke="currentColor" stroke-width="1.7"
-                   stroke-linecap="round" stroke-linejoin="round"
-                   aria-hidden="true">
-                <path d="M5 12h14m-7-7 7 7-7 7"/>
-              </svg>
-            </button>
+              <div class="field">
+                <label for="contact-name">
+                  Namn
+                  <span class="optional">(valfritt)</span>
+                </label>
+
+                <input
+                  id="contact-name"
+                  type="text"
+                  name="name"
+                  autocomplete="name"
+                  maxlength="100"
+                  placeholder="Ditt namn"
+                >
+              </div>
+
+              <div class="field">
+                <label for="contact-email">
+                  E-postadress
+                </label>
+
+                <input
+                  id="contact-email"
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  maxlength="254"
+                  placeholder="namn@exempel.se"
+                  required
+                >
+              </div>
+
+              <div class="field">
+                <label for="contact-message">
+                  Meddelande
+                </label>
+
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  placeholder="Skriv ditt meddelande..."
+                  required
+                  minlength="10"
+                  maxlength="5000"
+                ></textarea>
+              </div>
+
+              <!-- HONEYPOT -->
+
+              <div class="honeypot" aria-hidden="true">
+                <label for="contact-company">
+                  Lämna detta fält tomt
+                </label>
+
+                <input
+                  id="contact-company"
+                  name="_gotcha"
+                  type="text"
+                  tabindex="-1"
+                  autocomplete="off"
+                >
+              </div>
+
+              <input
+                type="hidden"
+                name="_subject"
+                value="Nytt kontaktmeddelande – Juridik.ai"
+              >
+
+              <!-- FORM FOOTER -->
+
+              <div class="footer-form">
+
+                <p class="privacy">
+                  Skicka inte personnummer eller känsliga
+                  uppgifter. Läs vår
+                  <a href="/policy/">integritetspolicy</a>.
+                </p>
+
+                <button
+                  class="send"
+                  id="submit-button"
+                  type="submit"
+                >
+                  <span id="submit-label">
+                    Skicka meddelande
+                  </span>
+
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14m-7-7 7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- ERROR MESSAGE -->
+
+              <p
+                id="form-error"
+                class="form-error"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true"
+              ></p>
+
+            </form>
           </div>
 
-          <p
-            id="form-status"
-            class="status"
+          <!-- SUCCESS MESSAGE -->
+
+          <div
+            id="contact-success"
+            class="contact-success"
             role="status"
             aria-live="polite"
             aria-atomic="true"
-          ></p>
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
 
-        </form>
+            <span>
+              Tack! Ditt meddelande har skickats.
+            </span>
+          </div>
+
+        </div>
 
         <noscript>
           <p class="privacy">
@@ -582,96 +858,212 @@
 
       </section>
     </main>
-
   </div>
+
+  <!-- FORM LOGIC -->
 
   <script>
     (() => {
       'use strict';
 
-      const form = document.getElementById('contact-form');
-      const button = document.getElementById('submit-button');
-      const buttonLabel = document.getElementById('submit-label');
-      const status = document.getElementById('form-status');
+      const wrapper =
+        document.getElementById('submission-swap');
 
-      let submitting = false;
+      const formArea =
+        document.getElementById('contact-form-area');
 
-      function showStatus(state, text) {
-        status.dataset.state = state;
-        status.textContent = text;
+      const form =
+        document.getElementById('contact-form');
+
+      const success =
+        document.getElementById('contact-success');
+
+      const button =
+        document.getElementById('submit-button');
+
+      const buttonLabel =
+        document.getElementById('submit-label');
+
+      const errorMsg =
+        document.getElementById('form-error');
+
+      const REQUEST_TIMEOUT_MS = 15000;
+
+      let isSubmitting = false;
+      let controller = null;
+      let timeoutId = null;
+      let requestVersion = 0;
+      let pageIsActive = true;
+
+      function clearError() {
+        errorMsg.textContent = '';
+        errorMsg.classList.remove('is-visible');
       }
 
-      form.addEventListener('input', () => {
-        if (status.dataset.state === 'error') {
-          status.removeAttribute('data-state');
-          status.textContent = '';
+      function showError(message) {
+        errorMsg.textContent = message;
+        errorMsg.classList.add('is-visible');
+      }
+
+      function clearRequestTimeout() {
+        if (timeoutId !== null) {
+          clearTimeout(timeoutId);
+          timeoutId = null;
+        }
+      }
+
+      function cancelPendingRequest() {
+        requestVersion++;
+        clearRequestTimeout();
+
+        if (controller) {
+          controller.abort();
+          controller = null;
+        }
+
+        isSubmitting = false;
+      }
+
+      function resetFormUI() {
+        cancelPendingRequest();
+
+        wrapper.classList.remove('is-success');
+        formArea.inert = false;
+        success.inert = true;
+
+        button.disabled = false;
+        buttonLabel.textContent = 'Skicka meddelande';
+
+        clearError();
+      }
+
+      success.inert = true;
+
+      window.addEventListener('pageshow', (event) => {
+        pageIsActive = true;
+
+        if (event.persisted) {
+          resetFormUI();
         }
       });
+
+      window.addEventListener('pagehide', () => {
+        pageIsActive = false;
+        cancelPendingRequest();
+      });
+
+      form.addEventListener('input', clearError);
 
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
-        if (submitting || !form.reportValidity()) return;
+        if (
+          isSubmitting ||
+          wrapper.classList.contains('is-success') ||
+          !form.reportValidity()
+        ) {
+          return;
+        }
 
-        submitting = true;
+        clearError();
+
+        isSubmitting = true;
         button.disabled = true;
         buttonLabel.textContent = 'Skickar…';
 
-        status.removeAttribute('data-state');
-        status.textContent = '';
+        const currentVersion = ++requestVersion;
+        const currentController = new AbortController();
 
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 15000);
+        controller = currentController;
+
+        let timedOut = false;
+
+        timeoutId = setTimeout(() => {
+          timedOut = true;
+          currentController.abort();
+        }, REQUEST_TIMEOUT_MS);
 
         try {
           const response = await fetch(form.action, {
             method: 'POST',
             body: new FormData(form),
             headers: {
-              'Accept': 'application/json'
+              Accept: 'application/json'
             },
-            signal: controller.signal
+            signal: currentController.signal
           });
 
-          if (response.ok) {
-            form.reset();
-            showStatus(
-              'success',
-              'Tack! Ditt meddelande har tagits emot.'
-            );
-          } else if (response.status === 429) {
-            showStatus(
-              'error',
-              'För många försök just nu. Försök igen senare.'
-            );
-          } else if (response.status === 400 || response.status === 422) {
-            showStatus(
-              'error',
-              'Meddelandet kunde inte skickas. Kontrollera uppgifterna och försök igen.'
-            );
-          } else {
-            showStatus(
-              'error',
-              'Något gick fel när meddelandet skickades. Försök igen senare.'
-            );
+          if (
+            currentVersion !== requestVersion ||
+            !pageIsActive
+          ) {
+            return;
           }
+
+          if (!response.ok) {
+            if (response.status === 429) {
+              showError(
+                'För många försök just nu. Försök igen senare.'
+              );
+            } else if (
+              response.status === 400 ||
+              response.status === 422
+            ) {
+              showError(
+                'Meddelandet kunde inte skickas. Kontrollera uppgifterna och försök igen.'
+              );
+            } else {
+              showError(
+                'Meddelandet kunde inte skickas. Försök igen senare.'
+              );
+            }
+
+            return;
+          }
+
+          wrapper.classList.add('is-success');
+          formArea.inert = true;
+          success.inert = false;
+
         } catch (error) {
-          if (error.name === 'AbortError') {
-            showStatus(
-              'error',
-              'Ingen bekräftelse kom från tjänsten. Kontrollera innan du skickar igen, eftersom meddelandet kan ha kommit fram.'
+          if (
+            currentVersion !== requestVersion ||
+            !pageIsActive
+          ) {
+            return;
+          }
+
+          if (
+            timedOut ||
+            error.name === 'AbortError'
+          ) {
+            showError(
+              'Ingen bekräftelse kom fram. Kontrollera om meddelandet mottagits innan du försöker igen.'
+            );
+          } else if (error instanceof TypeError) {
+            showError(
+              'Kunde inte ansluta. Kontrollera internetanslutningen och försök igen.'
             );
           } else {
-            showStatus(
-              'error',
-              'Anslutningen misslyckades. Kontrollera nätverket och försök igen.'
+            showError(
+              'Meddelandet kunde inte skickas. Försök igen.'
             );
           }
+
         } finally {
-          clearTimeout(timeout);
-          submitting = false;
-          button.disabled = false;
-          buttonLabel.textContent = 'Skicka meddelande';
+          if (currentVersion === requestVersion) {
+            clearRequestTimeout();
+
+            controller = null;
+            isSubmitting = false;
+
+            if (
+              !wrapper.classList.contains('is-success')
+            ) {
+              button.disabled = false;
+              buttonLabel.textContent = 'Skicka meddelande';
+            }
+          }
         }
       });
     })();
