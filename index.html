@@ -9,6 +9,7 @@
   <meta name="description" content="Juridik.ai utforskar möjligheterna med AI inom juridik. Anmäl dig för uppdateringar inför lanseringen.">
   <meta name="theme-color" content="#030d1d">
   <meta name="color-scheme" content="dark">
+
   <link rel="canonical" href="https://juridik.ai/">
 
   <meta property="og:type" content="website">
@@ -103,6 +104,8 @@
       flex-shrink: 0;
       filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
     }
+
+    /* SCREEN READER HEADING */
 
     .sr-only {
       position: absolute;
@@ -273,14 +276,13 @@
       }
     }
 
-    /* SUCCESS MESSAGE */
+    /* NEW SUCCESS CONFIRMATION */
 
     @keyframes status-pop-in {
       from {
         opacity: 0;
         transform: translateY(8px) scale(0.96);
       }
-
       to {
         opacity: 1;
         transform: translateY(0) scale(1);
@@ -288,31 +290,27 @@
     }
 
     @keyframes draw-check {
-      from { stroke-dashoffset: 24; }
-      to { stroke-dashoffset: 0; }
+      from {
+        stroke-dashoffset: 24;
+      }
+      to {
+        stroke-dashoffset: 0;
+      }
     }
 
     .form-status {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 0 4px;
-      font-size: 0.95rem;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      line-height: 1.5;
-      color: rgba(255, 255, 255, 0.9);
+      gap: 7px;
+      padding: 3px 4px;
+      color: #f5f7fb;
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      overflow-wrap: break-word;
+      text-align: center;
       align-self: center;
-      white-space: nowrap;
-    }
-
-    .form-status span {
-      min-width: 0;
     }
 
     .waitlist-wrapper.is-success .form-status {
@@ -322,23 +320,50 @@
         cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .form-status svg {
-      width: 15px;
-      height: 15px;
-      color: #ffffff;
-      opacity: 0.9;
+    .status-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 39px;
+      height: 39px;
+      margin-bottom: 5px;
+      border: 1px solid rgba(208, 222, 244, 0.12);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.035);
+      color: #e6edf8;
       flex-shrink: 0;
     }
 
-    .form-status svg polyline {
+    .status-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .status-icon polyline {
       stroke-dasharray: 24;
       stroke-dashoffset: 24;
     }
 
-    .waitlist-wrapper.is-success .form-status svg polyline {
+    .waitlist-wrapper.is-success .status-icon polyline {
       animation:
         draw-check 0.5s 0.2s
         cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .status-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -0.018em;
+      line-height: 1.45;
+    }
+
+    .status-description {
+      margin: 0;
+      color: #91a1ba;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.65;
     }
 
     /* ERROR MESSAGE */
@@ -485,7 +510,6 @@
       }
 
       .form-status {
-        font-size: 0.75rem;
         gap: 6px;
       }
 
@@ -500,10 +524,8 @@
         white-space: normal;
       }
 
-      .form-status {
-        font-size: 0.68rem;
-        gap: 4px;
-        white-space: normal;
+      .status-description {
+        font-size: 11px;
       }
     }
 
@@ -598,6 +620,8 @@
 
       </div>
 
+      <!-- NEW SUCCESS CONFIRMATION -->
+
       <div
         class="form-status"
         id="status-msg"
@@ -605,19 +629,23 @@
         aria-live="polite"
         aria-atomic="true"
       >
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <polyline points="20 6 9 17 4 12"></polyline>
-        </svg>
+        <div class="status-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
 
-        <span>Du är uppskriven! Följ oss på X nedanför.</span>
+        <p class="status-title">Du är anmäld.</p>
+        <p class="status-description">
+          Vi hör av oss när vi har uppdateringar.
+        </p>
       </div>
 
     </div>
