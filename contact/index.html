@@ -90,14 +90,30 @@
       margin: 0 auto;
     }
 
-    /* HEADER */
+    .contact {
+      flex: 1;
+      display: grid;
+      grid-template-columns:
+        minmax(0, 1.02fr)
+        minmax(0, .98fr);
+      grid-template-rows: auto minmax(0, 1fr);
+      grid-template-areas:
+        "nav editorial"
+        "form editorial";
+      column-gap: 0;
+      row-gap: 32px;
+      align-content: center;
+      align-items: start;
+      padding: 55px 0 93px;
+    }
 
-    .header {
+    /* BACK NAVIGATION */
+
+    .contact-nav {
+      grid-area: nav;
       display: flex;
       align-items: center;
-      justify-content: flex-start;
-      min-height: 114px;
-      padding-top: 1px;
+      min-height: 19px;
     }
 
     .home-link {
@@ -107,12 +123,14 @@
       color: #a2b1c7;
       text-decoration: none;
       font-size: 13px;
+      font-weight: 400;
       transition: color .2s ease;
     }
 
     .home-link svg {
       width: 15px;
       height: 15px;
+      flex-shrink: 0;
       transition: transform .2s ease;
     }
 
@@ -124,22 +142,10 @@
       transform: translateX(-3px);
     }
 
-    /* CONTACT LAYOUT */
-
-    .contact {
-      flex: 1;
-      display: grid;
-      grid-template-columns:
-        minmax(0, 1.02fr)
-        minmax(0, .98fr);
-      align-items: center;
-      padding: 55px 0 93px;
-    }
-
     /* RIGHT COLUMN */
 
     .editorial {
-      order: 2;
+      grid-area: editorial;
       min-height: 560px;
       display: flex;
       flex-direction: column;
@@ -199,11 +205,11 @@
     /* LEFT COLUMN */
 
     .form-column {
-      order: 1;
+      grid-area: form;
       width: 100%;
-      min-height: 560px;
+      min-height: 509px;
       border-right: 1px solid var(--rule);
-      padding: 43px clamp(42px, 5.8vw, 90px) 0 0;
+      padding: 0 clamp(42px, 5.8vw, 90px) 0 0;
     }
 
     .form-heading {
@@ -515,16 +521,20 @@
         width: min(100% - 44px, 560px);
       }
 
-      .header {
-        min-height: 86px;
-      }
-
       .contact {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
         padding: 51px 0 72px;
       }
 
+      .contact-nav {
+        order: 1;
+        margin-bottom: 34px;
+      }
+
       .editorial {
+        order: 2;
         min-height: 0;
         padding: 0;
       }
@@ -539,6 +549,7 @@
       }
 
       .form-column {
+        order: 3;
         min-height: 0;
         border-right: 0;
         padding: 48px 0 0;
@@ -561,10 +572,6 @@
     @media (max-width: 420px) {
       .shell {
         width: calc(100% - 36px);
-      }
-
-      .header {
-        min-height: 76px;
       }
 
       .home-link {
@@ -619,26 +626,26 @@
 <body>
   <div class="shell">
 
-    <!-- NAVIGATION -->
-
-    <header class="header">
-      <a class="home-link" href="/">
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.7"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-        >
-          <path d="M19 12H5m7 7-7-7 7-7"/>
-        </svg>
-        Till startsidan
-      </a>
-    </header>
-
     <main class="contact">
+
+      <!-- BACK NAVIGATION -->
+
+      <nav class="contact-nav" aria-label="Sidnavigering">
+        <a class="home-link" href="/">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 12H5m7 7-7-7 7-7"/>
+          </svg>
+          Till startsidan
+        </a>
+      </nav>
 
       <!-- RIGHT COLUMN -->
 
