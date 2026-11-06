@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#030d1d">
+
   <meta name="description" content="Kontakta Juridik.ai med frågor, idéer och förslag via vårt kontaktformulär.">
   <link rel="canonical" href="https://juridik.ai/contact/">
   <title>Kontakt — Juridik.ai</title>
@@ -233,7 +234,7 @@
       align-items: baseline;
       gap: 8px;
       color: #d5deee;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 500;
     }
 
@@ -296,7 +297,7 @@
       justify-content: flex-end;
       margin-top: 9px;
       color: #7789a3;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 400;
       font-variant-numeric: tabular-nums;
       line-height: 1.5;
@@ -320,7 +321,7 @@
     .privacy {
       max-width: 300px;
       margin: 0;
-      font-size: 11px;
+      font-size: 13px;
       color: #899bb5;
       line-height: 1.65;
     }
@@ -373,7 +374,7 @@
       cursor: wait;
     }
 
-    /* FORM / SUCCESS TRANSITION */
+    /* FORM AND SUCCESS TRANSITION */
 
     .submission-swap {
       display: grid;
@@ -489,7 +490,7 @@
       min-height: 32px;
       margin: 12px 0 0;
       color: #dca6a6;
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 400;
       line-height: 1.5;
       opacity: 0;
@@ -700,10 +701,7 @@
 
       <!-- RIGHT COLUMN -->
 
-      <section
-        class="editorial"
-        aria-labelledby="page-title"
-      >
+      <section class="editorial" aria-labelledby="page-title">
         <h1 id="page-title">
           Kontakt<span class="dot">.</span>
         </h1>
@@ -736,34 +734,25 @@
 
       <!-- LEFT COLUMN -->
 
-      <section
-        class="form-column"
-        aria-labelledby="form-title"
-      >
+      <section class="form-column" aria-labelledby="form-title">
 
         <div class="form-heading">
           <h2 id="form-title">Skriv till oss</h2>
         </div>
 
-        <div
-          class="submission-swap"
-          id="submission-swap"
-        >
+        <div class="submission-swap" id="submission-swap">
 
-          <!-- FORM -->
+          <!-- CONTACT FORM -->
 
           <div
             class="contact-form-area"
             id="contact-form-area"
           >
-
             <form
               id="contact-form"
               action="https://formspree.io/f/xaeekvnp"
               method="POST"
             >
-
-              <!-- NAME -->
 
               <div class="field">
                 <label for="contact-name">
@@ -780,12 +769,8 @@
                 >
               </div>
 
-              <!-- EMAIL -->
-
               <div class="field">
-                <label for="contact-email">
-                  E-post
-                </label>
+                <label for="contact-email">E-post</label>
 
                 <input
                   id="contact-email"
@@ -797,8 +782,6 @@
                   required
                 >
               </div>
-
-              <!-- MESSAGE -->
 
               <div class="field">
                 <label for="contact-message">
@@ -935,8 +918,6 @@
     </main>
   </div>
 
-  <!-- FORM LOGIC -->
-
   <script>
     (() => {
       'use strict';
@@ -991,13 +972,6 @@
         );
       }
 
-      messageInput.addEventListener(
-        'input',
-        updateCounter
-      );
-
-      updateCounter();
-
       /* ERRORS */
 
       function clearError() {
@@ -1046,6 +1020,14 @@
       }
 
       success.inert = true;
+      updateCounter();
+
+      messageInput.addEventListener(
+        'input',
+        updateCounter
+      );
+
+      form.addEventListener('input', clearError);
 
       window.addEventListener('pageshow', (event) => {
         pageIsActive = true;
@@ -1059,8 +1041,6 @@
         pageIsActive = false;
         cancelPendingRequest();
       });
-
-      form.addEventListener('input', clearError);
 
       /* FORM SUBMISSION */
 
