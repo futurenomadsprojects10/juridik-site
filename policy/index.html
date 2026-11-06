@@ -4,345 +4,301 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Integritetspolicy - Juridik.ai</title>
-  <meta name="description" content="Information om hur Juridik.ai behandlar personuppgifter.">
-  <meta name="theme-color" content="#030d1d">
   <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#030d1d">
+
+  <meta
+    name="description"
+    content="Läs hur Juridik.ai behandlar personuppgifter, använder formulär och hanterar dina rättigheter."
+  >
 
   <link rel="canonical" href="https://juridik.ai/policy/">
 
-  <link rel="icon" type="image/png" href="/Favicon1.png" media="(prefers-color-scheme: light)">
-  <link rel="icon" type="image/png" href="/Favicon2.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <title>Integritetspolicy - Juridik.ai</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link
+    rel="icon"
+    type="image/png"
+    href="/Favicon2.png"
+    media="(prefers-color-scheme: dark)"
+  >
+
+  <link
+    rel="icon"
+    type="image/png"
+    href="/Favicon1.png"
+    media="(prefers-color-scheme: light)"
+  >
+
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/apple-touch-icon.png"
+  >
 
   <style>
-    /* RESET */
+    @font-face {
+      font-family: 'Instrument Sans';
+      src: url('/fonts/InstrumentSans.woff2') format('woff2');
+      font-style: normal;
+      font-weight: 400 700;
+      font-display: swap;
+    }
 
     *,
     *::before,
     *::after {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     html {
       min-height: 100%;
-      width: 100%;
       background-color: #030d1d;
       color-scheme: dark;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
     }
 
     body {
       min-height: 100vh;
-      min-height: 100svh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: left;
-      padding: 80px 24px;
-      font-family: 'Geist', -apple-system,
-        BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100dvh;
+      margin: 0;
+      font-family: 'Instrument Sans', -apple-system,
+        BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 14px;
+      line-height: 1.75;
       background: radial-gradient(
-        circle at 14% 20%,
-        #040e1e 0%,
-        #030a16 65%,
-        #020711 100%
+        circle at center,
+        #081d3b 0%,
+        #030d1d 55%,
+        #01060e 100%
       );
-      color: rgba(255, 255, 255, 0.6);
+      color: #f5f7fb;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
     }
 
-    /* LAYOUT */
+    /* PAGE LAYOUT */
 
-    .policy-wrapper {
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      max-width: 920px;
-      padding-left: 6%;
+    .container {
+      width: min(100% - 80px, 760px);
+      margin: 0 auto;
+      padding: 68px 0 94px;
     }
 
-    .policy-container {
-      width: 100%;
-      max-width: 640px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
+    /* BACK LINK */
 
-    /* NAVIGATION */
-
-    .policy-nav {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-    }
-
-    .home-link {
+    .back {
       display: inline-flex;
       align-items: center;
       gap: 12px;
+      margin-bottom: 62px;
       color: #a2b1c7;
-      text-decoration: none;
       font-size: 13px;
-      font-weight: 400;
+      text-decoration: none;
       transition: color .2s ease;
     }
 
-    .home-link svg {
+    .back svg {
       width: 15px;
       height: 15px;
       flex-shrink: 0;
       transition: transform .2s ease;
     }
 
-    @media (hover: hover) and (pointer: fine) {
-      .home-link:hover {
-        color: #ffffff;
-      }
-
-      .home-link:hover svg {
-        transform: translateX(-3px);
-      }
+    .back:hover {
+      color: #fff;
     }
 
-    .home-link:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, .65);
-      outline-offset: 5px;
-      border-radius: 2px;
+    .back:hover svg {
+      transform: translateX(-3px);
     }
 
-    /* TYPOGRAPHY */
+    /* HEADINGS */
 
     h1 {
-      font-size: 1.7rem;
+      margin: 0 0 17px;
+      font-size: clamp(34px, 5.8vw, 52px);
       font-weight: 500;
-      color: #ffffff;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-      margin-bottom: 4px;
+      line-height: 1.12;
+      letter-spacing: -.052em;
     }
 
-    .section-block {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    .intro {
+      margin: 0 0 47px;
+      color: #a4b3c9;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    section {
+      margin-top: 31px;
     }
 
     h2 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      line-height: 1.6;
-      letter-spacing: 0.01em;
-      color: rgba(255, 255, 255, 0.9);
+      margin: 0 0 10px;
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -.02em;
+      line-height: 1.45;
     }
+
+    /* BODY TEXT */
 
     p {
-      font-size: 0.95rem;
-      font-weight: 300;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.6);
-      letter-spacing: 0.01em;
+      margin: 0 0 12px;
+      color: #aab9ce;
+      font-weight: 400;
     }
 
-    /* LINKS */
-
-    .section-block a {
-      color: rgba(255, 255, 255, 0.6);
+    a:not(.back) {
+      color: #d1dcee;
       text-decoration: underline;
-      text-underline-offset: 2px;
+      text-underline-offset: 3px;
+      text-decoration-color: #647997;
       transition: color .2s ease;
     }
 
-    @media (hover: hover) and (pointer: fine) {
-      .section-block a:hover {
-        color: rgba(255, 255, 255, 0.9);
-      }
+    a:not(.back):hover {
+      color: #fff;
     }
 
-    .section-block a:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, .65);
+    a:focus-visible {
+      outline: 2px solid #d3e1ff;
       outline-offset: 4px;
-      border-radius: 2px;
     }
 
-    /* RESPONSIVE */
+    /* MOBILE */
 
-    @media (max-width: 768px) {
-      .policy-wrapper {
-        padding-left: 0;
+    @media (max-width: 600px) {
+      .container {
+        width: calc(100% - 40px);
+        padding: 39px 0 65px;
+      }
+
+      .back {
+        margin-bottom: 44px;
+      }
+
+      .intro {
+        margin-bottom: 37px;
+      }
+
+      section {
+        margin-top: 28px;
       }
     }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 40px 20px;
-      }
-
-      .policy-container {
-        gap: 24px;
-      }
-
-      h1 {
-        font-size: 1.4rem;
-      }
-
-      h2,
-      p {
-        font-size: 0.85rem;
-      }
-
-      .home-link {
-        gap: 7px;
-        font-size: 12px;
-      }
-    }
-
-    /* REDUCED MOTION */
 
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
       *::after {
         transition-duration: .01ms !important;
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="policy-wrapper">
-    <main class="policy-container">
+  <main class="container">
 
-      <!-- NAVIGATION -->
+    <a class="back" href="/">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.7"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M19 12H5m7 7-7-7 7-7"/>
+      </svg>
 
-      <nav class="policy-nav" aria-label="Sidnavigering">
-        <a class="home-link" href="/">
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.7"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            aria-hidden="true"
-          >
-            <path d="M19 12H5m7 7-7-7 7-7"/>
-          </svg>
-          Till startsidan
-        </a>
-      </nav>
+      Till startsidan
+    </a>
 
-      <!-- INTRODUCTION -->
+    <h1>Integritetspolicy</h1>
 
-      <header>
-        <h1>Integritetspolicy</h1>
-        <p>
-          Här beskriver vi hur Juridik.ai behandlar
-          personuppgifter.
-        </p>
-      </header>
+    <p class="intro">
+      Här beskriver vi hur Juridik.ai behandlar personuppgifter.
+    </p>
 
-      <!-- SECTION 1 -->
+    <section aria-labelledby="ansvar">
+      <h2 id="ansvar">1. Ansvar och kontakt</h2>
 
-      <section class="section-block" aria-labelledby="section-1">
-        <h2 id="section-1">1. Ansvar och kontakt</h2>
-        <p>
-          Juridik.ai ansvarar för behandlingen av
-          personuppgifter på webbplatsen.
-          Du når oss via vårt
-          <a href="/contact/">kontaktformulär</a>.
-        </p>
-      </section>
+      <p>
+        Juridik.ai ansvarar för behandlingen av personuppgifter
+        på webbplatsen. Du når oss via vårt
+        <a href="/contact/">kontaktformulär</a>.
+      </p>
+    </section>
 
-      <!-- SECTION 2 -->
+    <section aria-labelledby="uppgifter">
+      <h2 id="uppgifter">2. Uppgifter och användning</h2>
 
-      <section class="section-block" aria-labelledby="section-2">
-        <h2 id="section-2">2. Uppgifter och användning</h2>
-        <p>
-          Vid anmälan samlar vi in din e-postadress för
-          att skicka uppdateringar om Juridik.ai
-          (samtycke).
-        </p>
-        <p>
-          Vid kontakt behandlar vi din e-postadress,
-          ditt meddelande och eventuellt namn för att
-          besvara förfrågan (berättigat intresse).
-        </p>
-        <p>
-          Vid besök kan tekniska uppgifter, såsom
-          IP-adress, behandlas för webbplatsens drift
-          och säkerhet (berättigat intresse).
-          Uppgifterna lämnas frivilligt i formulären,
-          men e-postadress krävs för att få uppdateringar
-          eller svar.
-        </p>
-      </section>
+      <p>
+        Vid anmälan samlar vi in din e-postadress för att
+        skicka uppdateringar om Juridik.ai (samtycke).
+      </p>
 
-      <!-- SECTION 3 -->
+      <p>
+        Vid kontakt behandlar vi din e-postadress, ditt
+        meddelande och eventuellt namn för att besvara
+        förfrågan (berättigat intresse).
+      </p>
 
-      <section class="section-block" aria-labelledby="section-3">
-        <h2 id="section-3">3. Lagring</h2>
-        <p>
-          Anmälningsuppgifter sparas tills du avregistrerar
-          dig eller utskicken upphör. Kontaktuppgifter
-          sparas tills ärendet är avslutat och uppgifterna
-          inte längre behövs. Tekniska uppgifter sparas
-          så länge de behövs för drift och säkerhet.
-        </p>
-      </section>
+      <p>
+        Vid besök kan tekniska uppgifter, såsom IP-adress,
+        behandlas för webbplatsens drift och säkerhet
+        (berättigat intresse). Uppgifterna lämnas frivilligt
+        i formulären, men e-postadress krävs för att få
+        uppdateringar eller svar.
+      </p>
+    </section>
 
-      <!-- SECTION 4 -->
+    <section aria-labelledby="lagring">
+      <h2 id="lagring">3. Lagring</h2>
 
-      <section class="section-block" aria-labelledby="section-4">
-        <h2 id="section-4">4. Tjänsteleverantörer</h2>
-        <p>
-          Vi använder Formspree för att hantera formulär,
-          externa tjänster för webbplatsens drift och
-          Google Fonts för typsnitt.
-          Personuppgifter kan överföras till USA med
-          skyddsåtgärder enligt GDPR, däribland
-          standardavtalsklausuler.
-          Information om skyddsåtgärderna kan begäras
-          via vårt <a href="/contact/">kontaktformulär</a>.
-        </p>
-      </section>
+      <p>
+        Anmälningsuppgifter sparas tills du avregistrerar dig
+        eller utskicken upphör. Kontaktuppgifter sparas tills
+        ärendet är avslutat och uppgifterna inte längre behövs.
+        Tekniska uppgifter sparas så länge de behövs för drift
+        och säkerhet.
+      </p>
+    </section>
 
-      <!-- SECTION 5 -->
+    <section aria-labelledby="leverantorer">
+      <h2 id="leverantorer">4. Tjänsteleverantörer</h2>
 
-      <section class="section-block" aria-labelledby="section-5">
-        <h2 id="section-5">5. Dina rättigheter</h2>
-        <p>
-          Du kan begära tillgång till, rättelse,
-          radering eller begränsning av dina uppgifter,
-          invända mot behandling och i vissa fall
-          begära dataportabilitet.
-          Du kan när som helst återkalla ditt samtycke
-          utan att det påverkar tidigare laglig behandling.
-          Du har även rätt att lämna klagomål till
-          Integritetsskyddsmyndigheten (IMY).
-        </p>
-        <p>
-          Kontakta oss via
-          <a href="/contact/">kontaktformuläret</a>
-          för att utöva dina rättigheter.
-        </p>
-      </section>
+      <p>
+        Vi använder Formspree för att hantera formulär och
+        externa tjänster för webbplatsens drift. Personuppgifter
+        kan överföras till USA med skyddsåtgärder enligt GDPR,
+        däribland standardavtalsklausuler. Information om
+        skyddsåtgärderna kan begäras via vårt
+        <a href="/contact/">kontaktformulär</a>.
+      </p>
+    </section>
 
-    </main>
-  </div>
+    <section aria-labelledby="rattigheter">
+      <h2 id="rattigheter">5. Dina rättigheter</h2>
+
+      <p>
+        Du kan begära tillgång till, rättelse, radering eller
+        begränsning av dina uppgifter, invända mot behandling
+        och i vissa fall begära dataportabilitet. Du kan när
+        som helst återkalla ditt samtycke utan att det påverkar
+        tidigare laglig behandling. Du har även rätt att lämna
+        klagomål till Integritetsskyddsmyndigheten (IMY).
+      </p>
+
+      <p>
+        Kontakta oss via
+        <a href="/contact/">kontaktformuläret</a>
+        för att utöva dina rättigheter.
+      </p>
+    </section>
+
+  </main>
 </body>
 </html>
