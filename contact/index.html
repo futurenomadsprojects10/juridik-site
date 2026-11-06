@@ -96,7 +96,7 @@
       grid-template-columns:
         minmax(0, 1.02fr)
         minmax(0, .98fr);
-      grid-template-rows: auto minmax(0, 1fr);
+      grid-template-rows: auto auto;
       grid-template-areas:
         "nav editorial"
         "form editorial";
@@ -104,7 +104,7 @@
       row-gap: 32px;
       align-content: center;
       align-items: start;
-      padding: 55px 0 93px;
+      padding: 36px 0;
     }
 
     /* BACK NAVIGATION */
@@ -511,6 +511,24 @@
 
       .send {
         align-self: flex-start;
+      }
+    }
+
+    /* SHORT SCREENS */
+
+    @media (max-height: 700px) and (min-width: 761px) {
+      .contact {
+        row-gap: 22px;
+        padding: 22px 0;
+      }
+
+      .editorial {
+        min-height: 500px;
+        padding-top: 30px;
+      }
+
+      .form-column {
+        min-height: 459px;
       }
     }
 
